@@ -1,9 +1,10 @@
-#pragma once
-
-#include <Windows.h>
+#include <windows.h>
 #include <iostream>
 #include <fstream>
 #include <TlHelp32.h>
+
+#include "ManualMapInject.h"
+
 
 using f_LoadLibraryA = HINSTANCE(WINAPI*)(const char* lpLibFilename);
 using f_GetProcAddress = UINT_PTR(WINAPI*)(HINSTANCE hModule, const char* lpProcName);
@@ -16,11 +17,6 @@ struct MANUAL_MAPPING_DATA
 	HINSTANCE hMod;
 };
 
-bool ManualMapInject(DWORD ID, const char* szDllFile);
-
-
-
-//------------------------------------
 
 void __stdcall Shellcode(MANUAL_MAPPING_DATA* pData);
 

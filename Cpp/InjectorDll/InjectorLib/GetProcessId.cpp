@@ -1,8 +1,7 @@
-#pragma once
-
-#include <windows.h> 
+#include <windows.h>
 #include <tlhelp32.h> 
 
+#include "GetProcessId.h"
 
 DWORD GetProcessId(const char* szExeName)
 {

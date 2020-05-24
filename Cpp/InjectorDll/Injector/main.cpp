@@ -2,9 +2,9 @@
 
 #include <iostream>
 
-#include "GetProcessId.h"
-#include "LoadLibraryInject.h"
-#include "ManualMapInject.h"
+#include "../InjectorLib/GetProcessId.h"
+#include "../InjectorLib/LoadLibraryInject.h"
+#include "../InjectorLib/ManualMapInject.h"
 
 
 int main()
