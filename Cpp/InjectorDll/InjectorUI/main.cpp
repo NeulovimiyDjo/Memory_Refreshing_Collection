@@ -135,11 +135,11 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	}
 
 
-	dllEditControl = CreateWindowEx(WS_EX_CLIENTEDGE, TEXT("Edit"), TEXT("DllHide.dll"),
+	dllEditControl = CreateWindowEx(WS_EX_CLIENTEDGE, TEXT("Edit"), TEXT("DllHost.dll"),
 		WS_CHILD | WS_VISIBLE, 30, 50, 400,
 		20, hwnd, NULL, NULL, NULL);
 
-	targetEditControl = CreateWindowEx(WS_EX_CLIENTEDGE, TEXT("Edit"), TEXT("Taskmgr.exe"),
+	targetEditControl = CreateWindowEx(WS_EX_CLIENTEDGE, TEXT("Edit"), TEXT("cmd.exe"),
 		WS_CHILD | WS_VISIBLE, 30, 70, 400,
 		20, hwnd, NULL, NULL, NULL);
 
