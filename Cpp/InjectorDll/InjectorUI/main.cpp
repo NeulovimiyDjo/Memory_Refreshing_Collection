@@ -135,11 +135,11 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	}
 
 
-	dllEditControl = CreateWindowEx(WS_EX_CLIENTEDGE, TEXT("Edit"), TEXT("DllHost.dll"),
+	dllEditControl = CreateWindowEx(WS_EX_CLIENTEDGE, TEXT("Edit"), TEXT("DllWowFunctions.dll"),
 		WS_CHILD | WS_VISIBLE, 30, 50, 400,
 		20, hwnd, NULL, NULL, NULL);
 
-	targetEditControl = CreateWindowEx(WS_EX_CLIENTEDGE, TEXT("Edit"), TEXT("cmd.exe"),
+	targetEditControl = CreateWindowEx(WS_EX_CLIENTEDGE, TEXT("Edit"), TEXT("WoW.exe"),
 		WS_CHILD | WS_VISIBLE, 30, 70, 400,
 		20, hwnd, NULL, NULL, NULL);
 

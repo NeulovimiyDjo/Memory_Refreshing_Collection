@@ -2,13 +2,16 @@
 #include <fstream>
 
 #include "LoadLibraryInject.h"
+#include "SetDebugPrivilege.h"
+#include "ShowError.h"
+
 
 bool LoadLibraryInject(DWORD ID, const char* dll)
 {
     std::ifstream test(dll);
     if (!test)
     {
-        MessageBox(nullptr, "Error:", "DLL not found!", MB_OK | MB_ICONERROR);
+        out::ShowError("DLL not found");
         return false;
     }
 
@@ -17,18 +20,55 @@ bool LoadLibraryInject(DWORD ID, const char* dll)
 
     HANDLE hProc;
     LPVOID pParamMemory;
-    LPVOID LoadLibrary;
+    LPVOID loadLibraryFunc;
+
+    if (!SetDebugPrivilege()) {
+        out::ShowError("Failed to elevate to debug privilege");
+        return false;
+    }
 
     hProc = OpenProcess(PROCESS_CREATE_THREAD | PROCESS_QUERY_INFORMATION | PROCESS_VM_READ | PROCESS_VM_WRITE | PROCESS_VM_OPERATION, FALSE, ID);
-    LoadLibrary = (LPVOID)GetProcAddress(GetModuleHandle("kernel32.dll"), "LoadLibraryA");
+    if (!hProc)
+    {
+        out::ShowError("Failed to open process");
+        return false;
+    }
+
+    loadLibraryFunc = (LPVOID)GetProcAddress(GetModuleHandle("kernel32.dll"), "LoadLibraryA");
+    if (!loadLibraryFunc)
+    {
+        out::ShowError("Failed to get LoadLibraryA function address");
+        CloseHandle(hProc);
+        return false;
+    }
 
     pParamMemory = (LPVOID)VirtualAllocEx(hProc, NULL, strlen(dll) + 1, MEM_RESERVE | MEM_COMMIT, PAGE_READWRITE);
-    WriteProcessMemory(hProc, (LPVOID)pParamMemory, dll, strlen(dll) + 1, NULL);
+    if (!pParamMemory)
+    {
+        out::ShowError("Failed to allocate memory for LoadLibraryA parameter");
+        CloseHandle(hProc);
+        return false;
+    }
 
-    CreateRemoteThread(hProc, NULL, NULL, (LPTHREAD_START_ROUTINE)LoadLibrary, (LPVOID)pParamMemory, NULL, NULL);
+    if (!WriteProcessMemory(hProc, (LPVOID)pParamMemory, dll, strlen(dll) + 1, NULL))
+    {
+        out::ShowError("Failed to write for LoadLibraryA parameter");
+        VirtualFreeEx(hProc, (LPVOID)pParamMemory, 0, MEM_RELEASE);
+        CloseHandle(hProc);
+        return false;
+    }
 
-    CloseHandle(hProc);
+    auto h = CreateRemoteThread(hProc, NULL, NULL, (LPTHREAD_START_ROUTINE)loadLibraryFunc, (LPVOID)pParamMemory, NULL, NULL);
+    if (!h)
+    {
+        out::ShowError("Failed to create remote thread");
+        VirtualFreeEx(hProc, (LPVOID)pParamMemory, 0, MEM_RELEASE);
+        CloseHandle(hProc);
+        return false;
+    }
+
     VirtualFreeEx(hProc, (LPVOID)pParamMemory, 0, MEM_RELEASE);
+    CloseHandle(hProc);
 
     return true;
 }

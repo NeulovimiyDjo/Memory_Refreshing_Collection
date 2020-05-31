@@ -24,6 +24,12 @@
     <ClCompile Include="ManualMapInject.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="SetDebugPrivilege.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ShowError.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GetProcessId.h">
@@ -33,6 +39,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ManualMapInject.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SetDebugPrivilege.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ShowError.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

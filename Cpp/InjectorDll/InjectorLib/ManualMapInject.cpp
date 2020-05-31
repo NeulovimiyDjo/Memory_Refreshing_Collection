@@ -4,6 +4,8 @@
 #include <TlHelp32.h>
 
 #include "ManualMapInject.h"
+#include "SetDebugPrivilege.h"
+#include "ShowError.h"
 
 
 using f_LoadLibraryA = HINSTANCE(WINAPI*)(const char* lpLibFilename);
@@ -23,7 +25,6 @@ void __stdcall Shellcode(MANUAL_MAPPING_DATA* pData);
 bool ManualMapInject(DWORD ID, const char* szDllFile) {
 	if (!ID)
 		return false;
-	HANDLE hProc = OpenProcess(PROCESS_ALL_ACCESS, FALSE, ID);
 
 	BYTE* pSrcData = nullptr;
 	IMAGE_NT_HEADERS* pOldNtHeader = nullptr;
@@ -31,140 +32,164 @@ bool ManualMapInject(DWORD ID, const char* szDllFile) {
 	IMAGE_FILE_HEADER* pOldFileHeader = nullptr;
 	BYTE* pTargetBase = nullptr;
 
-	if (!(GetFileAttributesA(szDllFile) == INVALID_FILE_ATTRIBUTES)) {
-		std::ifstream File(szDllFile, std::ios::binary | std::ios::ate);
-		if (File.fail()) {
-			MessageBox(nullptr, "Error:", "DLL not found!", MB_OK | MB_ICONERROR);
-			File.close();
-			CloseHandle(hProc);
-			return false;
-		}
-
-		auto fileSize = File.tellg();
-
-		if (fileSize < 0x1000) {
-			MessageBox(nullptr, "Error:", "DLL too small!", MB_OK | MB_ICONERROR);
-			File.close();
-			CloseHandle(hProc);
-			return false;
-		}
-
-		pSrcData = new BYTE[static_cast<UINT_PTR>(fileSize)];
-		if (!pSrcData) {
-			File.close();
-			MessageBox(nullptr, "Error:", "Memory allocation failed!", MB_OK | MB_ICONERROR);
-			CloseHandle(hProc);
-			return false;
-		}
-
-		File.seekg(0, std::ios::beg);
-		File.read(reinterpret_cast<char*>(pSrcData), fileSize);
-		File.close();
-
-		if (reinterpret_cast<IMAGE_DOS_HEADER*>(pSrcData)->e_magic != 0x5A4D) {
-			delete[] pSrcData;
-			MessageBox(nullptr, "Error:", "Invalid File", MB_OK | MB_ICONERROR);
-			CloseHandle(hProc);
-			return false;
-		}
-
-		pOldNtHeader = reinterpret_cast<IMAGE_NT_HEADERS*>(pSrcData + reinterpret_cast<IMAGE_DOS_HEADER*>(pSrcData)->e_lfanew);
-		pOldOptHeader = &pOldNtHeader->OptionalHeader;
-		pOldFileHeader = &pOldNtHeader->FileHeader;
-
-#ifdef _WIN64
-		if (pOldFileHeader->Machine != IMAGE_FILE_MACHINE_AMD64) {
-			MessageBox(nullptr, "Error:", "Invalid DLL format", MB_OK | MB_ICONERROR);
-			delete[] pSrcData;
-			CloseHandle(hProc);
-			return false;
-		}
-#else
-		if (pOldFileHeader->Machine != IMAGE_FILE_MACHINE_I386) {
-			MessageBox(nullptr, "Error:", "Invalid DLL format", MB_OK | MB_ICONERROR);
-			delete[] pSrcData;
-			CloseHandle(hProc);
-			return false;
-		}
-#endif // _WIN64
-
-		pTargetBase = reinterpret_cast<BYTE*>(VirtualAllocEx(hProc, reinterpret_cast<void*>(pOldOptHeader->ImageBase), pOldOptHeader->SizeOfImage, MEM_COMMIT | MEM_RESERVE, PAGE_EXECUTE_READWRITE));
-
-		if (!pTargetBase) {
-			pTargetBase = reinterpret_cast<BYTE*>(VirtualAllocEx(hProc, nullptr, pOldOptHeader->SizeOfImage, MEM_COMMIT | MEM_RESERVE, PAGE_EXECUTE_READWRITE));
-		}
-
-		if (pTargetBase) {
-			MANUAL_MAPPING_DATA data{ 0 };
-			data.ploadLibraryA = LoadLibraryA;
-			data.pGetProcAddress = reinterpret_cast<f_GetProcAddress>(GetProcAddress);
-
-			auto* pSectionHeader = IMAGE_FIRST_SECTION(pOldNtHeader);
-
-			for (UINT i = 0; i != pOldFileHeader->NumberOfSections; i++, pSectionHeader++) {
-				if (pSectionHeader->SizeOfRawData) {
-					if (!WriteProcessMemory(hProc, pTargetBase + pSectionHeader->VirtualAddress, pSrcData + pSectionHeader->PointerToRawData, pSectionHeader->SizeOfRawData, nullptr)) {
-						MessageBox(nullptr, "Error:", "Cant map sections", MB_OK | MB_ICONERROR);
-						delete[] pSrcData;
-						VirtualFreeEx(hProc, pTargetBase, 0, MEM_RELEASE);
-						CloseHandle(hProc);
-						return false;
-					}
-				}
-			}
-
-			memcpy(pSrcData, &data, sizeof(data));
-			WriteProcessMemory(hProc, pTargetBase, pSrcData, 0x1000, nullptr);
-			delete[] pSrcData;
-
-			void* pShellcode = VirtualAllocEx(hProc, nullptr, 0x1000, MEM_COMMIT | MEM_RESERVE, PAGE_EXECUTE_READWRITE);
-			if (!pShellcode)
-			{
-				MessageBox(nullptr, "Error:", "Memory allocation failed", MB_OK | MB_ICONERROR);
-				VirtualFreeEx(hProc, pTargetBase, 0, MEM_RELEASE);
-				CloseHandle(hProc);
-				return false;
-			}
-
-			WriteProcessMemory(hProc, pShellcode, Shellcode, 0x1000, nullptr);
-
-
-			HANDLE hThread = CreateRemoteThread(hProc, nullptr, 0, reinterpret_cast<LPTHREAD_START_ROUTINE>(pShellcode), pTargetBase, 0, nullptr);
-			if (!hThread)
-			{
-				MessageBox(nullptr, "Error:", "Thread creation failed", MB_OK | MB_ICONERROR);
-				VirtualFreeEx(hProc, pTargetBase, 0, MEM_RELEASE);
-				VirtualFreeEx(hProc, pShellcode, 0, MEM_RELEASE);
-				CloseHandle(hProc);
-				return false;
-			}
-			CloseHandle(hThread);
-
-			HINSTANCE hCheck = NULL;
-			while (!hCheck)
-			{
-				MANUAL_MAPPING_DATA data_checked{ 0 };
-				ReadProcessMemory(hProc, pTargetBase, &data_checked, sizeof(data_checked), nullptr);
-				hCheck = data_checked.hMod;
-				Sleep(10);
-			}
-			VirtualFreeEx(hProc, pShellcode, 0, MEM_RELEASE);
-		}
-		else {
-			MessageBox(nullptr, "Error:", "Memory allocation failed", MB_OK | MB_ICONERROR);
-			delete[] pSrcData;
-			CloseHandle(hProc);
-			return false;
-		}
-
-		CloseHandle(hProc);
-		return true;
+	if (!SetDebugPrivilege()) {
+		out::ShowError("Failed to elevate to debug privilege");
+		return false;
 	}
-	else {
-		MessageBox(nullptr, "Error:", "DLL not found!", MB_OK | MB_ICONERROR);
+
+	HANDLE hProc = OpenProcess(PROCESS_ALL_ACCESS, FALSE, ID);
+	if (!hProc) {
+		out::ShowError("Failed to open process");
+		return false;
+	}
+
+
+	if (GetFileAttributesA(szDllFile) == INVALID_FILE_ATTRIBUTES) {
+		out::ShowError("DLL not found");
 		CloseHandle(hProc);
 		return false;
 	}
+
+	std::ifstream File(szDllFile, std::ios::binary | std::ios::ate);
+	if (File.fail()) {
+		out::ShowError("Failed to open dll");
+		File.close();
+		CloseHandle(hProc);
+		return false;
+	}
+
+	auto fileSize = File.tellg();
+
+	if (fileSize < 0x1000) {
+		out::ShowError("DLL too small");
+		File.close();
+		CloseHandle(hProc);
+		return false;
+	}
+
+	pSrcData = new BYTE[static_cast<UINT_PTR>(fileSize)];
+	if (!pSrcData) {
+		File.close();
+		out::ShowError("Memory allocation for dll failed");
+		CloseHandle(hProc);
+		return false;
+	}
+
+	File.seekg(0, std::ios::beg);
+	File.read(reinterpret_cast<char*>(pSrcData), fileSize);
+	File.close();
+
+	if (reinterpret_cast<IMAGE_DOS_HEADER*>(pSrcData)->e_magic != 0x5A4D) {
+		delete[] pSrcData;
+		out::ShowError("Invalid File");
+		CloseHandle(hProc);
+		return false;
+	}
+
+	pOldNtHeader = reinterpret_cast<IMAGE_NT_HEADERS*>(pSrcData + reinterpret_cast<IMAGE_DOS_HEADER*>(pSrcData)->e_lfanew);
+	pOldOptHeader = &pOldNtHeader->OptionalHeader;
+	pOldFileHeader = &pOldNtHeader->FileHeader;
+
+#ifdef _WIN64
+	if (pOldFileHeader->Machine != IMAGE_FILE_MACHINE_AMD64) {
+		out::ShowError("Invalid DLL format");
+		delete[] pSrcData;
+		CloseHandle(hProc);
+		return false;
+	}
+#else
+	if (pOldFileHeader->Machine != IMAGE_FILE_MACHINE_I386) {
+		out::ShowError("Invalid DLL format");
+		delete[] pSrcData;
+		CloseHandle(hProc);
+		return false;
+	}
+#endif // _WIN64
+
+	pTargetBase = reinterpret_cast<BYTE*>(VirtualAllocEx(hProc, reinterpret_cast<void*>(pOldOptHeader->ImageBase), pOldOptHeader->SizeOfImage, MEM_COMMIT | MEM_RESERVE, PAGE_EXECUTE_READWRITE));
+
+	if (!pTargetBase) {
+		pTargetBase = reinterpret_cast<BYTE*>(VirtualAllocEx(hProc, nullptr, pOldOptHeader->SizeOfImage, MEM_COMMIT | MEM_RESERVE, PAGE_EXECUTE_READWRITE));
+	}
+
+	if (!pTargetBase) {
+		out::ShowError("Memory allocation failed");
+		delete[] pSrcData;
+		CloseHandle(hProc);
+		return false;
+	}
+
+	MANUAL_MAPPING_DATA data{ 0 };
+	data.ploadLibraryA = LoadLibraryA;
+	data.pGetProcAddress = reinterpret_cast<f_GetProcAddress>(GetProcAddress);
+
+	auto* pSectionHeader = IMAGE_FIRST_SECTION(pOldNtHeader);
+
+
+	for (UINT i = 0; i != pOldFileHeader->NumberOfSections; i++, pSectionHeader++) {
+		if (pSectionHeader->SizeOfRawData) {
+			if (!WriteProcessMemory(hProc, pTargetBase + pSectionHeader->VirtualAddress, pSrcData + pSectionHeader->PointerToRawData, pSectionHeader->SizeOfRawData, nullptr)) {
+				out::ShowError("Failed to write dll sections to target process memory");
+				delete[] pSrcData;
+				VirtualFreeEx(hProc, pTargetBase, 0, MEM_RELEASE);
+				CloseHandle(hProc);
+				return false;
+			}
+		}
+	}
+
+	memcpy(pSrcData, &data, sizeof(data));
+	if (!WriteProcessMemory(hProc, pTargetBase, pSrcData, 0x1000, nullptr)) {
+		out::ShowError("Failed to write shellcode helper data target process memory");
+		delete[] pSrcData;
+		VirtualFreeEx(hProc, pTargetBase, 0, MEM_RELEASE);
+		CloseHandle(hProc);
+		return false;
+	}
+	delete[] pSrcData;
+
+	void* pShellcode = VirtualAllocEx(hProc, nullptr, 0x1000, MEM_COMMIT | MEM_RESERVE, PAGE_EXECUTE_READWRITE);
+	if (!pShellcode)
+	{
+		out::ShowError("Failed to allocate memory for shellcode");
+		VirtualFreeEx(hProc, pTargetBase, 0, MEM_RELEASE);
+		CloseHandle(hProc);
+		return false;
+	}
+
+	if (!WriteProcessMemory(hProc, pShellcode, Shellcode, 0x1000, nullptr)) {
+		out::ShowError("Failed to write memory for shellcode");
+		VirtualFreeEx(hProc, pShellcode, 0, MEM_RELEASE);
+		VirtualFreeEx(hProc, pTargetBase, 0, MEM_RELEASE);
+		CloseHandle(hProc);
+		return false;
+	}
+
+
+	HANDLE hThread = CreateRemoteThread(hProc, nullptr, 0, reinterpret_cast<LPTHREAD_START_ROUTINE>(pShellcode), pTargetBase, 0, nullptr);
+	if (!hThread)
+	{
+		out::ShowError("Failed to create remote thread");
+		VirtualFreeEx(hProc, pShellcode, 0, MEM_RELEASE);
+		VirtualFreeEx(hProc, pTargetBase, 0, MEM_RELEASE);
+		CloseHandle(hProc);
+		return false;
+	}
+	CloseHandle(hThread);
+
+	HINSTANCE hCheck = NULL;
+	while (!hCheck)
+	{
+		MANUAL_MAPPING_DATA data_checked{ 0 };
+		ReadProcessMemory(hProc, pTargetBase, &data_checked, sizeof(data_checked), nullptr);
+		hCheck = data_checked.hMod;
+		Sleep(10);
+	}
+	VirtualFreeEx(hProc, pShellcode, 0, MEM_RELEASE);
+
+
+	CloseHandle(hProc);
+	return true;
 }
 
 #define RELOC_FLAG32(RelInfo) ((RelInfo >> 0x0C) == IMAGE_REL_BASED_HIGHLOW)
