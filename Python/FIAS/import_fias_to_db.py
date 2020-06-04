@@ -17,15 +17,15 @@ def insertToDb(cursor):
     for event, elem in context:
         i += 1
         
-        if event == 'end' and elem.tag == "Object" and elem.get('AOLEVEL') == '4': # only citiees (level 4)
+        if event == 'end' and elem.tag == "Object" and int(elem.get('AOLEVEL')) <= int('4'): # cities (level 4)
         
             SQLCommand = ("INSERT INTO [FIAS_TABLE] (FORMALNAME, AOLEVEL, PLAINCODE) VALUES (?,?,?)") 
-            Values = [elem.get('FORMALNAME'), elem.get('AOLEVEL'), elem.get('PLAINCODE')]
+            Values = [str(elem.get('FORMALNAME')), str(elem.get('AOLEVEL')), str(elem.get('PLAINCODE'))]
             cursor.execute(SQLCommand, Values)            
             
             root.clear()
             
-        if i % 100000 == 1: # print progress for every 100'000 objects
+        if i % 1000 == 1: # print progress for every 1'000 objects
             print("Inserted objects: " + str(i))
 
     print("Total inserted objects: " + str(i))
