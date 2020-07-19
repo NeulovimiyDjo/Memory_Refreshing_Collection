@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Net;
 using System.Threading.Tasks;
 
 namespace ClientApp
@@ -7,9 +8,25 @@ namespace ClientApp
     {     
         public static async Task<int> Main(string[] args)
         {
-            string server = "127.0.0.1";
+            string address = Dns.GetHostAddresses(
+                args.Length < 1 ? "serverapp" : args[0]
+            )[0].ToString();
+            int port = args.Length < 2 ? 17777 : int.Parse(args[1]);
+            Console.WriteLine("Client connects to: " + address + ":" + port.ToString());
 
-            await SslTcpClient.RunClient(server, args.Length == 0 ? 17777 : int.Parse(args[0]));
+            while (true)
+            {
+                try
+                {
+                    await SslTcpClient.RunClient(address, port);
+
+                    await Task.Delay(10000);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex);
+                }
+            }
 
             return 0;
         }

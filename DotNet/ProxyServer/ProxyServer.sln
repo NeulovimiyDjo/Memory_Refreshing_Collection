@@ -9,7 +9,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClientApp", "ClientApp\Clie
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServerApp", "ServerApp\ServerApp.csproj", "{A4CB4193-1A26-400E-A3E8-28FE1FB1CFD5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PacketSniffer", "PacketSniffer\PacketSniffer.csproj", "{F3891A9F-5111-4F25-8C7F-572B7D3CF172}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PacketSniffer", "PacketSniffer\PacketSniffer.csproj", "{F3891A9F-5111-4F25-8C7F-572B7D3CF172}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProxyServerML.Model", "ProxyServerML.Model\ProxyServerML.Model.csproj", "{D28F9B75-BC87-4BE3-8B29-43C88CD4373C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProxyServerML.ConsoleApp", "ProxyServerML.ConsoleApp\ProxyServerML.ConsoleApp.csproj", "{F5B96AEC-BC67-4D56-87BB-CFB8D7143E72}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{165EF1D1-144E-4632-AB00-9BD5F5E892B6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +39,18 @@ Global
 		{F3891A9F-5111-4F25-8C7F-572B7D3CF172}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F3891A9F-5111-4F25-8C7F-572B7D3CF172}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F3891A9F-5111-4F25-8C7F-572B7D3CF172}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D28F9B75-BC87-4BE3-8B29-43C88CD4373C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D28F9B75-BC87-4BE3-8B29-43C88CD4373C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D28F9B75-BC87-4BE3-8B29-43C88CD4373C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D28F9B75-BC87-4BE3-8B29-43C88CD4373C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F5B96AEC-BC67-4D56-87BB-CFB8D7143E72}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5B96AEC-BC67-4D56-87BB-CFB8D7143E72}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5B96AEC-BC67-4D56-87BB-CFB8D7143E72}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5B96AEC-BC67-4D56-87BB-CFB8D7143E72}.Release|Any CPU.Build.0 = Release|Any CPU
+		{165EF1D1-144E-4632-AB00-9BD5F5E892B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{165EF1D1-144E-4632-AB00-9BD5F5E892B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{165EF1D1-144E-4632-AB00-9BD5F5E892B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{165EF1D1-144E-4632-AB00-9BD5F5E892B6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

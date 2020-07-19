@@ -21,9 +21,11 @@ namespace ProxyServer
         {
             //var clients = new ConcurrentDictionary<IPEndPoint, TcpClient>();
 
-            IPAddress localIpAddress = string.IsNullOrEmpty(localIp) ? IPAddress.IPv6Any : IPAddress.Parse(localIp);
-            var server = new TcpListener(new IPEndPoint(localIpAddress, localPort));
-            server.Server.SetSocketOption(SocketOptionLevel.IPv6, SocketOptionName.IPv6Only, false);
+            //IPAddress localIpAddress = string.IsNullOrEmpty(localIp) ? IPAddress.IPv6Any : IPAddress.Parse(localIp);
+            //var server = new TcpListener(new IPEndPoint(localIpAddress, localPort));
+            //server.Server.SetSocketOption(SocketOptionLevel.IPv6, SocketOptionName.IPv6Only, false);
+            
+            TcpListener server = new TcpListener(IPAddress.Any, localPort);
             server.Start();
 
             Console.WriteLine($"TCP proxy started {localPort} -> {remoteServerIp}|{remoteServerPort}");

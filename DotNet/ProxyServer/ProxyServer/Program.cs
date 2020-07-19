@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Linq;
+using System.Net;
 
 namespace ProxyServer
 {
@@ -9,10 +10,14 @@ namespace ProxyServer
     {
         static void Main(string[] args)
         {
-			try
+            string address = Dns.GetHostAddresses("serverapp")[0].ToString();
+            ushort port = 17777;
+            Console.WriteLine("Proxy connects to: " + address + ":" + port.ToString());
+
+            try
 			{
                 var proxy = new TcpProxy();
-                var t = proxy.Start("127.0.0.1", 17777, 18888, "127.0.0.1");
+                var t = proxy.Start(address, port, 18888, "127.0.0.1");
 
                 Task.WhenAll(t).Wait();
 			}
