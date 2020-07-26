@@ -1,6 +1,7 @@
 ﻿using CefSharp;
 using CefSharp.SchemeHandler;
 using CefSharp.Wpf;
+using System.Threading.Tasks;
 using System.Windows;
 
 namespace CefSharpTarget
@@ -42,6 +43,11 @@ namespace CefSharpTarget
             var browser = new ChromiumWebBrowser("localfolder://cefsharp/");
 
             this.mainGrid.Children.Add(browser);
+
+            Task.Run(() => {
+                Task.Delay(10000).GetAwaiter().GetResult();
+                //browser.Reload(true);
+            });
         }
     }
 }

@@ -14,6 +14,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)ICommunicator.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)IV8EventHandler.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MessagePump.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Messages\SetBreakpointResponse.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Messages\Location.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Messages\CallFrame.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Messages\DebuggerPausedEvent.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Messages\EvaluateOnCallFrameResponse.cs" />

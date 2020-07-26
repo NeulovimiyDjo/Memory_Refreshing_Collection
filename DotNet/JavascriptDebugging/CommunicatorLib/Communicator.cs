@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using CommunicatorLib.Messages;
 using System.Collections.Generic;
 using Newtonsoft.Json;
+using Nito.AsyncEx;
 
 namespace CommunicatorLib
 {
@@ -97,7 +98,7 @@ namespace CommunicatorLib
                 sources.Enqueue(tcs);
             }
 
-            return tcs.Task;
+            return tcs.Task.WaitAsync(token);
         }
 
         public async Task Disconnect(CancellationToken cancellationToken)

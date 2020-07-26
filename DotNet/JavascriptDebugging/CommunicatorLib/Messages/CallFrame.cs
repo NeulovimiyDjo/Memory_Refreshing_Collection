@@ -10,6 +10,9 @@ namespace CommunicatorLib.Messages
         [JsonProperty("functionName")]
         public string FunctionName { get; set; }
 
+        [JsonProperty("location")]
+        public Location Location { get; set; }
+
         [JsonProperty("scopeChain")]
         public Scope[] ScopeChain { get; set; }
     }
