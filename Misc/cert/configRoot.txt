@@ -1,16 +1,15 @@
 [ req ]
-prompt=no
-distinguished_name=req_distinguished_name
-req_extensions=domain_ca
+prompt                  = no
+default_bits            = 4096
+distinguished_name      = req_distinguished_name
+extensions              = v3_ca
+req_extensions          = v3_ca
+x509_extensions         = v3_ca
 
-[ req_distinguished_name ]
-O=Example Organization
-CN=Original Certificate CN
+[req_distinguished_name]
+commonName = My Root CA
 
-[ domain_ca ]
-authorityKeyIdentifier=keyid
-basicConstraints=critical,CA:true
-keyUsage=critical,digitalSignature,nonRepudiation,keyCertSign,cRLSign
-subjectKeyIdentifier=hash
-authorityInfoAccess=OCSP;URI:http://ca.example.com:80/ca/ocsp
-nameConstraints=critical,permitted;DNS:.example.com
+[ v3_ca ]
+basicConstraints       = CA:TRUE
+subjectKeyIdentifier   = hash
+authorityKeyIdentifier = keyid:always,issuer:always

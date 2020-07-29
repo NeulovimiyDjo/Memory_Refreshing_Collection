@@ -1,4 +1,5 @@
-# Ignore everything except .txt files.
+# Ignore everything except .txt and .bat files.
 *
 !*.txt
+!*.bat
 !.gitignore
