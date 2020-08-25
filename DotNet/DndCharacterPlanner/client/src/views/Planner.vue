@@ -1,14 +1,14 @@
 <template>
-  <character-planner />
+    <character-planner />
 </template>
 
 <script>
-import CharacterPlanner from '@/components/CharacterPlanner.vue'
+import CharacterPlanner from '@/components/CharacterPlanner.vue';
 
 export default {
-  name: 'planner',
-  components: {
-    'character-planner': CharacterPlanner
-  }
-}
+    name: 'planner',
+    components: {
+        'character-planner': CharacterPlanner,
+    },
+};
 </script>

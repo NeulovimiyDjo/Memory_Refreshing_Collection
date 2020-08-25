@@ -1,51 +1,48 @@
-﻿using AngleSharp.Dom.Html;
-using AngleSharp.Parser.Html;
-using System;
-using System.IO;
-using System.Linq;
+﻿using AngleSharp.Parser.Html;
 using System.Collections.Generic;
+using System.IO;
 using WebScraper.Models;
 
 
 namespace WebScraper.Parsers
 {
-  static partial class Parser
-  {
-    private static class FeatsParser
+    static partial class Parser
     {
-      public static List<Option> ParseFeats()
-      {
-        string html = File.ReadAllText(Config.DownloadedPagesDir + "/FeatsPage.html.txt");
-
-
-        var parser = new HtmlParser();
-        var document = parser.Parse(html);
-
-
-        var feats = new List<Option>();
-
-        var elem = document.QuerySelector("#toc2");
-        while (elem != null && elem.NodeName != "H1")
+        private static class FeatsParser
         {
-          string name = elem.TextContent.Trim();
+            public static List<Option> ParseFeats()
+            {
+                string html = File.ReadAllText(Config.DownloadedPagesDir + "/FeatsPage.html.txt");
 
-          elem = elem.NextElementSibling;
-          string description = "";
-          while (elem != null && elem.NodeName != "H2" && elem.NodeName != "H1")
-          {
-            description = description + HelperFunctions.ReadArbitraryElement(elem);
 
-            elem = elem.NextElementSibling;
-          }
+                var parser = new HtmlParser();
+                var document = parser.Parse(html);
 
-          var option = new Option { name = name, description = description };
-          feats.Add(option);
+
+                var feats = new List<Option>();
+
+                var elem = document.QuerySelector("#toc2");
+                while (elem != null && elem.NodeName != "H1")
+                {
+                    string name = elem.TextContent.Trim();
+
+                    elem = elem.NextElementSibling;
+                    string description = "";
+                    while (elem != null && elem.NodeName != "H2" && elem.NodeName != "H1")
+                    {
+                        description = description + HelperFunctions.ReadArbitraryElement(elem);
+
+                        elem = elem.NextElementSibling;
+                    }
+
+                    var option = new Option { name = name, description = description };
+                    feats.Add(option);
+                }
+
+
+
+                return feats;
+            }
         }
-
-
-
-        return feats;
-      }
     }
-  }
 }

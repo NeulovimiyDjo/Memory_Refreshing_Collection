@@ -1,19 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace WebScraper.Models
 {
-  public class Subclass
-  {
-    public int id;
+    public class Subclass
+    {
+        public int id;
 
-    public int level;
+        public int level;
 
-    public string name;
-    public string description;
-    public List<Ability> abilities;
+        public string name;
+        public string description;
+        public List<Ability> abilities;
 
-    public List<int> cantrips;
-    public List<int> spells;
-  }
+        public List<int> cantrips;
+        public List<int> spells;
+    }
 }

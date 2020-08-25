@@ -3,7 +3,7 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:32191",
+      "applicationUrl": "http://localhost:32191/dndplanner",
       "sslPort": 44352
     }
   },
