@@ -7,6 +7,7 @@ namespace WebScraper.Models
         public int id;
 
         public string name;
+        public string requirement;
         public string description;
 
         public Dictionary<string, int> bonusStats;
@@ -22,6 +23,8 @@ namespace WebScraper.Models
                     bonusStats.Add("cha", 1);
                     break;
                 case "Durable":
+                case "Dwarven Fortitude":
+                case "Infernal Constitution":
                     bonusStats.Add("con", 1);
                     break;
                 case "Heavily Armored":

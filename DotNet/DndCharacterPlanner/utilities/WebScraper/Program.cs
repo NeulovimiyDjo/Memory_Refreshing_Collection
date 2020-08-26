@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using WebScraper.Downloaders.Dnd5eWikidot;
 using WebScraper.Models;
 using WebScraper.Parsers;
 
@@ -11,24 +12,24 @@ namespace WebScraper
     {
         static void Main(string[] args)
         {
-            if (args.Length < 1) return;
-            if (args.Length > 1 && args[1] == "--silent") Config.Silent = true;
-
-
+            Downloader.DownloadAllWikidotPages(); return;
             string webScraperProjectDir = Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).Parent.Parent.Parent.FullName;
 
             Config.DownloadedPagesDir = webScraperProjectDir + "/../webscraper_downloaded_pages";
             Config.ServerDataDir = webScraperProjectDir + "/../../server/Data";
 
 
+            ScrapeFiles();
+            return;
+
+            if (args.Length < 1) return;
+            if (args.Length > 1 && args[1] == "--silent") Config.Silent = true;
+
 
 
             if (args[0] == "--scrape-files")
             {
-                Directory.CreateDirectory(Config.ServerDataDir);
-
-                Database db = Parser.ScrapeFiles();
-                SaveObject(db, "database.json");
+                ScrapeFiles();
             }
             else if (args[0] == "--download-pages")
             {
@@ -43,6 +44,13 @@ namespace WebScraper
             }
         }
 
+        private static void ScrapeFiles()
+        {
+            Directory.CreateDirectory(Config.ServerDataDir);
+
+            Database db = Parser.ScrapeFiles();
+            SaveObject(db, "database.json");
+        }
 
         private static void SaveObject(dynamic obj, string fileName)
         {

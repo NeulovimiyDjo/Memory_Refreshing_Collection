@@ -90,6 +90,15 @@ const statsPlus1x1Items = [
     'Observant',
     'Tavern Brawler',
     'Weapon Master',
+    'Dragon Hide',
+    'Dragon Fear',
+    'Elven Accuracy',
+    'Fade Away',
+    'Fey Teleportation',
+    'Flames of Plegethos',
+    'Orcish Fury',
+    'Second Chance',
+    'Squat Nibleness',
 ];
 
 function makeNewItem(item, s1, s2) {
@@ -145,9 +154,38 @@ export default {
                     return ['str', 'dex'];
                 case 'Observant':
                     this.selected1 = 'int';
+                    this.changeItem();
                     return ['int', 'wis'];
                 case 'Tavern Brawler':
                     return ['str', 'con'];
+                case 'Dragon Fear':
+                    return ['str', 'con', 'cha'];
+                case 'Dragon Hide':
+                    return ['str', 'con', 'cha'];
+                case 'Elven Accuracy':
+                    this.selected1 = 'dex';
+                    this.changeItem();
+                    return ['dex', 'int', 'wis', 'cha'];
+                case 'Fade Away':
+                    this.selected1 = 'dex';
+                    this.changeItem();
+                    return ['dex', 'int'];
+                case 'Fey Teleportation':
+                    this.selected1 = 'int';
+                    this.changeItem();
+                    return ['int', 'cha'];
+                case 'Flames of Plegethos':
+                    this.selected1 = 'int';
+                    this.changeItem();
+                    return ['int', 'cha'];
+                case 'Orcish Fury':
+                    return ['str', 'con'];
+                case 'Second Chance':
+                    this.selected1 = 'dex';
+                    this.changeItem();
+                    return ['dex', 'con', 'cha'];
+                case 'Squat Nibleness':
+                    return ['str', 'dex'];
                 default:
                     return this.statTypes;
             }

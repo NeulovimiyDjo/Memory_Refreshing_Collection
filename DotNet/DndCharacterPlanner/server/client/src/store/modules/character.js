@@ -378,7 +378,9 @@ export default {
                     return isForCurrentRace;
                 }
                 case 'feat': {
-                    return true;
+                    let satisfiesRace = item.requirement == undefined
+                        || item.requirement.includes(state.character.race.name);
+                    return satisfiesRace;
                 }
                 case 'raceAbility': {
                     return true;
