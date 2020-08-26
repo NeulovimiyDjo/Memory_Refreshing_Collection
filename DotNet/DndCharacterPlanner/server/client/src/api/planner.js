@@ -1,7 +1,7 @@
 import 'whatwg-fetch';
 
 const debug = process.env.NODE_ENV !== 'production';
-const apiUrl = debug ? 'http://localhost:5000/api/planner' : '/api/planner';
+const apiUrl = debug ? '/api/planner' : '/api/planner';
 
 function jsonResponsePromise(url, options) {
     return new Promise((resolve) => {

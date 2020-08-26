@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.SpaServices;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -23,6 +24,7 @@ namespace server
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddSpaStaticFiles(options => options.RootPath = "client/dist");
 
             services.AddSingleton<DndDatabase>();
 
@@ -42,31 +44,54 @@ namespace server
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseCors(builder => builder.WithOrigins("http://localhost:8080").AllowAnyHeader().AllowAnyMethod());
+                //app.UseCors(builder => builder.WithOrigins("http://localhost:8080").AllowAnyHeader().AllowAnyMethod());
+            }
+            else
+            {
+                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+                app.UseHsts();
             }
 
             app.UseHttpsRedirection();
 
 
-            app.Use(async (context, next) =>
-            {
-                var path = context.Request.Path.Value;
+            //bool isDev = env.IsDevelopment();
+            //app.Use(async (context, next) =>
+            //{
+            //    var path = context.Request.Path.Value;
 
-                bool isApiOrFile = path.StartsWith("/api") || System.IO.Path.HasExtension(path);
-                if (!isApiOrFile)
-                {
-                    context.Request.Path = "/index.html";
-                }
+            //    bool isNodeDevSocks = isDev && path.StartsWith("/sockjs-node");
+            //    bool isApiOrFile = path.StartsWith("/api") || System.IO.Path.HasExtension(path);
+            //    if (!isApiOrFile && !isNodeDevSocks)
+            //    {
+            //        context.Request.Path = "/index.html";
+            //    }
 
-                await next();
-            });
+            //    await next();
+            //});
 
-            app.UseStaticFiles();
+            //app.UseStaticFiles();
 
             app.UseRouting();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+            });
+
+
+            if (env.IsDevelopment()) // idk dev server serves from root instead of dist
+                app.UseSpaStaticFiles(new StaticFileOptions { RequestPath = "/client" });
+            else
+                app.UseSpaStaticFiles();
+
+            app.UseSpa(spa =>
+            {
+                spa.Options.SourcePath = "client";
+                if (env.IsDevelopment())
+                {
+                    // Launch development server for Vue.js
+                    spa.UseVueDevelopmentServer();
+                }
             });
         }
     }

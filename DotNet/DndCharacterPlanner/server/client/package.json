@@ -3,7 +3,7 @@
     "version": "0.1.0",
     "private": true,
     "scripts": {
-        "serve": "vue-cli-service serve",
+        "serve": "vue-cli-service serve --port 8081 --host 0.0.0.0 --host localhost",
         "build": "vue-cli-service build",
         "pretty": "prettier --write \"./**/*.{js,jsx,json,vue,css}\""
     },
