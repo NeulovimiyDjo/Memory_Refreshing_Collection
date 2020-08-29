@@ -23,7 +23,7 @@
         WIKIREQUEST.info.categoryId = 38072554;
         WIKIREQUEST.info.themeId = 2386862;
         WIKIREQUEST.info.requestPageName = "blood-hunter:lycan";
-        OZONE.request.timestamp = 1598484392;
+        OZONE.request.timestamp = 1598502288;
         OZONE.request.date = new Date();
         WIKIREQUEST.info.lang = 'en';
                 WIKIREQUEST.info.pageUnixName = "blood-hunter:lycan";
@@ -473,45 +473,45 @@ Powered by <a href="http://www.wikidot.com">Wikidot.com</a>
   <div class="units">
               <div class="unit">
           <div class="inner">
-            <a target="_blank" class="image" href="http://musovarc.wikidot.com">
-              <img class="thumbnail" alt="" src="http://thumbnails.wdfiles.com/thumbnail/site/musovarc.wikidot.com/80.jpg"/>
+            <a target="_blank" class="image" href="http://java.wikidot.com">
+              <img class="thumbnail" alt="" src="http://thumbnails.wdfiles.com/thumbnail/site/java.wikidot.com/80.jpg"/>
             </a>
-            <h3><a target="_blank" href="http://musovarc.wikidot.com">斯基的地下车库</a></h3>
+            <h3><a target="_blank" href="http://java.wikidot.com">Learn Java!</a></h3>
             <div class="desc">          
-              Let&#039;s keep it simple.
+              No... it&#039;s not coffee.
             </div>
           </div>
         </div>
               <div class="unit">
           <div class="inner">
-            <a target="_blank" class="image" href="http://autorytet-rpc.pl">
-              <img class="thumbnail" alt="" src="http://thumbnails.wdfiles.com/thumbnail/site/autorytet-rpc.pl/80.jpg"/>
+            <a target="_blank" class="image" href="http://fmi.wikidot.com">
+              <img class="thumbnail" alt="" src="http://thumbnails.wdfiles.com/thumbnail/site/fmi.wikidot.com/80.jpg"/>
             </a>
-            <h3><a target="_blank" href="http://autorytet-rpc.pl">Autorytet RPC</a></h3>
+            <h3><a target="_blank" href="http://fmi.wikidot.com">Лекциите на ФМИ</a></h3>
             <div class="desc">          
-              Badania, Ochrona, Przechowywanie
+              За да изглеждаме умни пред другите
             </div>
           </div>
         </div>
               <div class="unit">
           <div class="inner">
-            <a target="_blank" class="image" href="http://www.rpc-wiki.net">
-              <img class="thumbnail" alt="" src="http://thumbnails.wdfiles.com/thumbnail/site/www.rpc-wiki.net/80.jpg"/>
+            <a target="_blank" class="image" href="http://liblivadia.wikidot.com">
+              <img class="thumbnail" alt="" src="http://thumbnails.wdfiles.com/thumbnail/site/liblivadia.wikidot.com/80.jpg"/>
             </a>
-            <h3><a target="_blank" href="http://www.rpc-wiki.net">RPC Authority</a></h3>
+            <h3><a target="_blank" href="http://liblivadia.wikidot.com">ΔΗΜΟΣΙΑ ΚΕΝΤΡΙΚΗ ΒΙΒΛΙΟΘΗΚΗ ΛΕΒΑΔΕΙΑΣ</a></h3>
             <div class="desc">          
-              Research, Protection, Containment
+              Levadia Library
             </div>
           </div>
         </div>
               <div class="unit">
           <div class="inner">
-            <a target="_blank" class="image" href="http://projects.wikidot.com">
-              <img class="thumbnail" alt="" src="http://thumbnails.wdfiles.com/thumbnail/site/projects.wikidot.com/80.jpg"/>
+            <a target="_blank" class="image" href="http://ozradonc.wikidot.com">
+              <img class="thumbnail" alt="" src="http://thumbnails.wdfiles.com/thumbnail/site/ozradonc.wikidot.com/80.jpg"/>
             </a>
-            <h3><a target="_blank" href="http://projects.wikidot.com">projects.wikidot.com</a></h3>
+            <h3><a target="_blank" href="http://ozradonc.wikidot.com">OzRadOnc</a></h3>
             <div class="desc">          
-              Wikidot Projects Forum
+              A collection of thoughts and notes
             </div>
           </div>
         </div>

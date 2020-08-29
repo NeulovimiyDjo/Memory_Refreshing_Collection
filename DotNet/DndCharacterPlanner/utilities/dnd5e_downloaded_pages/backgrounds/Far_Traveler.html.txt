@@ -23,7 +23,7 @@
         WIKIREQUEST.info.categoryId = 12838331;
         WIKIREQUEST.info.themeId = 2386862;
         WIKIREQUEST.info.requestPageName = "background:far-traveler";
-        OZONE.request.timestamp = 1598484452;
+        OZONE.request.timestamp = 1598502344;
         OZONE.request.date = new Date();
         WIKIREQUEST.info.lang = 'en';
                 WIKIREQUEST.info.pageUnixName = "background:far-traveler";
@@ -636,21 +636,21 @@ Powered by <a href="http://www.wikidot.com">Wikidot.com</a>
   <div class="units">
               <div class="unit">
           <div class="inner">
-            <a target="_blank" class="image" href="http://snippets.wikidot.com">
-              <img class="thumbnail" alt="" src="http://thumbnails.wdfiles.com/thumbnail/site/snippets.wikidot.com/80.jpg"/>
+            <a target="_blank" class="image" href="http://editora.wikidot.com">
+              <img class="thumbnail" alt="" src="http://thumbnails.wdfiles.com/thumbnail/site/editora.wikidot.com/80.jpg"/>
             </a>
-            <h3><a target="_blank" href="http://snippets.wikidot.com">Wiki Code Snippets</a></h3>
+            <h3><a target="_blank" href="http://editora.wikidot.com">CIN  7402 Editoração Científica</a></h3>
             <div class="desc">          
-              Snippets
+              Disciplina na UFSC
             </div>
           </div>
         </div>
               <div class="unit">
           <div class="inner">
-            <a target="_blank" class="image" href="http://ds2009a.wikidot.com">
-              <img class="thumbnail" alt="" src="http://thumbnails.wdfiles.com/thumbnail/site/ds2009a.wikidot.com/80.jpg"/>
+            <a target="_blank" class="image" href="http://soulslore.wikidot.com">
+              <img class="thumbnail" alt="" src="http://thumbnails.wdfiles.com/thumbnail/site/soulslore.wikidot.com/80.jpg"/>
             </a>
-            <h3><a target="_blank" href="http://ds2009a.wikidot.com">Data Structures</a></h3>
+            <h3><a target="_blank" href="http://soulslore.wikidot.com">Souls Lore</a></h3>
             <div class="desc">          
               
             </div>
@@ -658,23 +658,23 @@ Powered by <a href="http://www.wikidot.com">Wikidot.com</a>
         </div>
               <div class="unit">
           <div class="inner">
-            <a target="_blank" class="image" href="http://eom-wiki.wikidot.com">
-              <img class="thumbnail" alt="" src="http://thumbnails.wdfiles.com/thumbnail/site/eom-wiki.wikidot.com/80.jpg"/>
+            <a target="_blank" class="image" href="http://pagi.wikidot.com">
+              <img class="thumbnail" alt="" src="http://thumbnails.wdfiles.com/thumbnail/site/pagi.wikidot.com/80.jpg"/>
             </a>
-            <h3><a target="_blank" href="http://eom-wiki.wikidot.com">EOM花园</a></h3>
+            <h3><a target="_blank" href="http://pagi.wikidot.com">pagi</a></h3>
             <div class="desc">          
-              食用 观赏 医疗
+              
             </div>
           </div>
         </div>
               <div class="unit">
           <div class="inner">
-            <a target="_blank" class="image" href="http://autorytet-rpc.pl">
-              <img class="thumbnail" alt="" src="http://thumbnails.wdfiles.com/thumbnail/site/autorytet-rpc.pl/80.jpg"/>
+            <a target="_blank" class="image" href="http://biol-117.wikidot.com">
+              <img class="thumbnail" alt="" src="http://thumbnails.wdfiles.com/thumbnail/site/biol-117.wikidot.com/80.jpg"/>
             </a>
-            <h3><a target="_blank" href="http://autorytet-rpc.pl">Autorytet RPC</a></h3>
+            <h3><a target="_blank" href="http://biol-117.wikidot.com">Principles of Biology II</a></h3>
             <div class="desc">          
-              Badania, Ochrona, Przechowywanie
+              
             </div>
           </div>
         </div>

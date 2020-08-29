@@ -23,7 +23,7 @@
         WIKIREQUEST.info.categoryId = 12781198;
         WIKIREQUEST.info.themeId = 2386862;
         WIKIREQUEST.info.requestPageName = "feat:blade-mastery";
-        OZONE.request.timestamp = 1598484446;
+        OZONE.request.timestamp = 1598502440;
         OZONE.request.date = new Date();
         WIKIREQUEST.info.lang = 'en';
                 WIKIREQUEST.info.pageUnixName = "feat:blade-mastery";
@@ -462,45 +462,45 @@ Powered by <a href="http://www.wikidot.com">Wikidot.com</a>
   <div class="units">
               <div class="unit">
           <div class="inner">
-            <a target="_blank" class="image" href="http://www.digitalvomit.com">
-              <img class="thumbnail" alt="" src="http://thumbnails.wdfiles.com/thumbnail/site/www.digitalvomit.com/80.jpg"/>
+            <a target="_blank" class="image" href="http://blackmarches.wikidot.com">
+              <img class="thumbnail" alt="" src="http://thumbnails.wdfiles.com/thumbnail/site/blackmarches.wikidot.com/80.jpg"/>
             </a>
-            <h3><a target="_blank" href="http://www.digitalvomit.com">Digital Vomit Records</a></h3>
+            <h3><a target="_blank" href="http://blackmarches.wikidot.com">Black Marches</a></h3>
+            <div class="desc">          
+              Roll20 Pathfinder
+            </div>
+          </div>
+        </div>
+              <div class="unit">
+          <div class="inner">
+            <a target="_blank" class="image" href="http://sparks.wikidot.com">
+              <img class="thumbnail" alt="" src="http://thumbnails.wdfiles.com/thumbnail/site/sparks.wikidot.com/80.jpg"/>
+            </a>
+            <h3><a target="_blank" href="http://sparks.wikidot.com">Sparks</a></h3>
+            <div class="desc">          
+              d6 Star Wars Campaign
+            </div>
+          </div>
+        </div>
+              <div class="unit">
+          <div class="inner">
+            <a target="_blank" class="image" href="http://isocentre.wikidot.com">
+              <img class="thumbnail" alt="" src="http://thumbnails.wdfiles.com/thumbnail/site/isocentre.wikidot.com/80.jpg"/>
+            </a>
+            <h3><a target="_blank" href="http://isocentre.wikidot.com">Isocentre Archive</a></h3>
+            <div class="desc">          
+              Where ideas intersect
+            </div>
+          </div>
+        </div>
+              <div class="unit">
+          <div class="inner">
+            <a target="_blank" class="image" href="http://cst133a.wikidot.com">
+              <img class="thumbnail" alt="" src="http://thumbnails.wdfiles.com/thumbnail/site/cst133a.wikidot.com/80.jpg"/>
+            </a>
+            <h3><a target="_blank" href="http://cst133a.wikidot.com">CST 133 A</a></h3>
             <div class="desc">          
               
-            </div>
-          </div>
-        </div>
-              <div class="unit">
-          <div class="inner">
-            <a target="_blank" class="image" href="http://scp-jp.wikidot.com">
-              <img class="thumbnail" alt="" src="http://thumbnails.wdfiles.com/thumbnail/site/scp-jp.wikidot.com/80.jpg"/>
-            </a>
-            <h3><a target="_blank" href="http://scp-jp.wikidot.com">SCP財団</a></h3>
-            <div class="desc">          
-              確保、収容、保護
-            </div>
-          </div>
-        </div>
-              <div class="unit">
-          <div class="inner">
-            <a target="_blank" class="image" href="http://managerzonemexico.wikidot.com">
-              <img class="thumbnail" alt="" src="http://thumbnails.wdfiles.com/thumbnail/site/managerzonemexico.wikidot.com/80.jpg"/>
-            </a>
-            <h3><a target="_blank" href="http://managerzonemexico.wikidot.com">La Wiki de ManagerZone México</a></h3>
-            <div class="desc">          
-              
-            </div>
-          </div>
-        </div>
-              <div class="unit">
-          <div class="inner">
-            <a target="_blank" class="image" href="http://echobazaar.wikidot.com">
-              <img class="thumbnail" alt="" src="http://thumbnails.wdfiles.com/thumbnail/site/echobazaar.wikidot.com/80.jpg"/>
-            </a>
-            <h3><a target="_blank" href="http://echobazaar.wikidot.com">Echo Bazaar</a></h3>
-            <div class="desc">          
-              Come to Fallen London
             </div>
           </div>
         </div>

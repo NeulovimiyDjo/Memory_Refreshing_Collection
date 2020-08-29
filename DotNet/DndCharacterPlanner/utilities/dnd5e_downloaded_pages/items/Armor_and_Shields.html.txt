@@ -23,7 +23,7 @@
         WIKIREQUEST.info.categoryId = 11887298;
         WIKIREQUEST.info.themeId = 2386862;
         WIKIREQUEST.info.requestPageName = "armor";
-        OZONE.request.timestamp = 1598484508;
+        OZONE.request.timestamp = 1598502459;
         OZONE.request.date = new Date();
         WIKIREQUEST.info.lang = 'en';
                 WIKIREQUEST.info.pageUnixName = "armor";
@@ -636,45 +636,45 @@ Powered by <a href="http://www.wikidot.com">Wikidot.com</a>
   <div class="units">
               <div class="unit">
           <div class="inner">
-            <a target="_blank" class="image" href="http://scp-el.wikidot.com">
-              <img class="thumbnail" alt="" src="http://thumbnails.wdfiles.com/thumbnail/site/scp-el.wikidot.com/80.jpg"/>
+            <a target="_blank" class="image" href="http://gamedesign.wikidot.com">
+              <img class="thumbnail" alt="" src="http://thumbnails.wdfiles.com/thumbnail/site/gamedesign.wikidot.com/80.jpg"/>
             </a>
-            <h3><a target="_blank" href="http://scp-el.wikidot.com">Το Ίδρυμα SCP</a></h3>
+            <h3><a target="_blank" href="http://gamedesign.wikidot.com">Game Design Novice</a></h3>
             <div class="desc">          
-              Ελληνόφωνo υποκατάστημα
+              Learn to make video games.
             </div>
           </div>
         </div>
               <div class="unit">
           <div class="inner">
-            <a target="_blank" class="image" href="http://scp-wiki.net.pl">
-              <img class="thumbnail" alt="" src="http://thumbnails.wdfiles.com/thumbnail/site/scp-wiki.net.pl/80.jpg"/>
+            <a target="_blank" class="image" href="http://everydaymagicalgirls.wikidot.com">
+              <img class="thumbnail" alt="" src="http://thumbnails.wdfiles.com/thumbnail/site/everydaymagicalgirls.wikidot.com/80.jpg"/>
             </a>
-            <h3><a target="_blank" href="http://scp-wiki.net.pl">Fundacja SCP</a></h3>
+            <h3><a target="_blank" href="http://everydaymagicalgirls.wikidot.com">Everyday Magical Girls</a></h3>
             <div class="desc">          
-              Polska Filia SCP
+              It&#039;s not what it sounds like, I swear...
             </div>
           </div>
         </div>
               <div class="unit">
           <div class="inner">
-            <a target="_blank" class="image" href="http://sandboxscpfr.wikidot.com">
-              <img class="thumbnail" alt="" src="http://thumbnails.wdfiles.com/thumbnail/site/sandboxscpfr.wikidot.com/80.jpg"/>
+            <a target="_blank" class="image" href="http://e-h-s.wikidot.com">
+              <img class="thumbnail" alt="" src="http://thumbnails.wdfiles.com/thumbnail/site/e-h-s.wikidot.com/80.jpg"/>
             </a>
-            <h3><a target="_blank" href="http://sandboxscpfr.wikidot.com">SCP Sandbox</a></h3>
+            <h3><a target="_blank" href="http://e-h-s.wikidot.com">Electromagnetic (Hyper)Sensitivity</a></h3>
             <div class="desc">          
-              Réservé aux auteurs et traducteurs du Wiki
+              Causes of Electro Smog, EMF and Wireless Devices
             </div>
           </div>
         </div>
               <div class="unit">
           <div class="inner">
-            <a target="_blank" class="image" href="http://schrijven.wikidot.com">
-              <img class="thumbnail" alt="" src="http://thumbnails.wdfiles.com/thumbnail/site/schrijven.wikidot.com/80.jpg"/>
+            <a target="_blank" class="image" href="http://morphopedics.wikidot.com">
+              <img class="thumbnail" alt="" src="http://thumbnails.wdfiles.com/thumbnail/site/morphopedics.wikidot.com/80.jpg"/>
             </a>
-            <h3><a target="_blank" href="http://schrijven.wikidot.com">www.schrijven.wikidot.com</a></h3>
+            <h3><a target="_blank" href="http://morphopedics.wikidot.com">Morphopedics</a></h3>
             <div class="desc">          
-              Voor teksten, artikelen, verhalen en poëzie
+              Where Technology and Orthopedics Collides
             </div>
           </div>
         </div>

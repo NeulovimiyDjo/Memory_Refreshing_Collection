@@ -23,7 +23,7 @@
         WIKIREQUEST.info.categoryId = 12822331;
         WIKIREQUEST.info.themeId = 2386862;
         WIKIREQUEST.info.requestPageName = "sorcerer:stone";
-        OZONE.request.timestamp = 1598484419;
+        OZONE.request.timestamp = 1598502385;
         OZONE.request.date = new Date();
         WIKIREQUEST.info.lang = 'en';
                 WIKIREQUEST.info.pageUnixName = "sorcerer:stone";
@@ -520,45 +520,45 @@ Powered by <a href="http://www.wikidot.com">Wikidot.com</a>
   <div class="units">
               <div class="unit">
           <div class="inner">
-            <a target="_blank" class="image" href="http://latindictionary.wikidot.com">
-              <img class="thumbnail" alt="" src="http://thumbnails.wdfiles.com/thumbnail/site/latindictionary.wikidot.com/80.jpg"/>
+            <a target="_blank" class="image" href="http://harvey-capital-lectures.wikidot.com">
+              <img class="thumbnail" alt="" src="http://thumbnails.wdfiles.com/thumbnail/site/harvey-capital-lectures.wikidot.com/80.jpg"/>
             </a>
-            <h3><a target="_blank" href="http://latindictionary.wikidot.com">The Latin Dictionary</a></h3>
+            <h3><a target="_blank" href="http://harvey-capital-lectures.wikidot.com">Harvey Capital Lectures</a></h3>
             <div class="desc">          
-              Where Latin meets English
+              Crowdsourced Transcription and Translation Project
             </div>
           </div>
         </div>
               <div class="unit">
           <div class="inner">
-            <a target="_blank" class="image" href="http://scpvakfi.wikidot.com">
-              <img class="thumbnail" alt="" src="http://thumbnails.wdfiles.com/thumbnail/site/scpvakfi.wikidot.com/80.jpg"/>
+            <a target="_blank" class="image" href="http://tradewithsaint.wikidot.com">
+              <img class="thumbnail" alt="" src="http://thumbnails.wdfiles.com/thumbnail/site/tradewithsaint.wikidot.com/80.jpg"/>
             </a>
-            <h3><a target="_blank" href="http://scpvakfi.wikidot.com">SCP Vakfı</a></h3>
+            <h3><a target="_blank" href="http://tradewithsaint.wikidot.com">Trading With The Flow!!!</a></h3>
             <div class="desc">          
-              Yakala, Sakla, Koru
+              The Art of Trading the NOW
             </div>
           </div>
         </div>
               <div class="unit">
           <div class="inner">
-            <a target="_blank" class="image" href="http://schrijven.wikidot.com">
-              <img class="thumbnail" alt="" src="http://thumbnails.wdfiles.com/thumbnail/site/schrijven.wikidot.com/80.jpg"/>
+            <a target="_blank" class="image" href="http://morphopedics.wikidot.com">
+              <img class="thumbnail" alt="" src="http://thumbnails.wdfiles.com/thumbnail/site/morphopedics.wikidot.com/80.jpg"/>
             </a>
-            <h3><a target="_blank" href="http://schrijven.wikidot.com">www.schrijven.wikidot.com</a></h3>
+            <h3><a target="_blank" href="http://morphopedics.wikidot.com">Morphopedics</a></h3>
             <div class="desc">          
-              Voor teksten, artikelen, verhalen en poëzie
+              Where Technology and Orthopedics Collides
             </div>
           </div>
         </div>
               <div class="unit">
           <div class="inner">
-            <a target="_blank" class="image" href="http://mapdb.obsidianconflict.net">
-              <img class="thumbnail" alt="" src="http://thumbnails.wdfiles.com/thumbnail/site/mapdb.obsidianconflict.net/80.jpg"/>
+            <a target="_blank" class="image" href="http://www.larpard.cz">
+              <img class="thumbnail" alt="" src="http://thumbnails.wdfiles.com/thumbnail/site/www.larpard.cz/80.jpg"/>
             </a>
-            <h3><a target="_blank" href="http://mapdb.obsidianconflict.net">Obsidian Conflict Map Database</a></h3>
+            <h3><a target="_blank" href="http://www.larpard.cz">Larpard</a></h3>
             <div class="desc">          
-              
+              Vše nejen o larpech ve východních Čechách
             </div>
           </div>
         </div>

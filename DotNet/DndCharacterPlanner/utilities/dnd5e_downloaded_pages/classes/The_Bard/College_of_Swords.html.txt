@@ -23,7 +23,7 @@
         WIKIREQUEST.info.categoryId = 12800689;
         WIKIREQUEST.info.themeId = 2386862;
         WIKIREQUEST.info.requestPageName = "bard:swords";
-        OZONE.request.timestamp = 1598484483;
+        OZONE.request.timestamp = 1598502389;
         OZONE.request.date = new Date();
         WIKIREQUEST.info.lang = 'en';
                 WIKIREQUEST.info.pageUnixName = "bard:swords";
@@ -480,45 +480,45 @@ Powered by <a href="http://www.wikidot.com">Wikidot.com</a>
   <div class="units">
               <div class="unit">
           <div class="inner">
-            <a target="_blank" class="image" href="http://gurpswiki.wikidot.com">
-              <img class="thumbnail" alt="" src="http://thumbnails.wdfiles.com/thumbnail/site/gurpswiki.wikidot.com/80.jpg"/>
+            <a target="_blank" class="image" href="http://dawnofanewage.wikidot.com">
+              <img class="thumbnail" alt="" src="http://thumbnails.wdfiles.com/thumbnail/site/dawnofanewage.wikidot.com/80.jpg"/>
             </a>
-            <h3><a target="_blank" href="http://gurpswiki.wikidot.com">GURPS Repository</a></h3>
+            <h3><a target="_blank" href="http://dawnofanewage.wikidot.com">Dawn of a New Age Wiki</a></h3>
             <div class="desc">          
-              A collection for your GURPS needs
+              A Custom Fantasy Setting
             </div>
           </div>
         </div>
               <div class="unit">
           <div class="inner">
-            <a target="_blank" class="image" href="http://05command.wikidot.com">
-              <img class="thumbnail" alt="" src="http://thumbnails.wdfiles.com/thumbnail/site/05command.wikidot.com/80.jpg"/>
+            <a target="_blank" class="image" href="http://scp-el.wikidot.com">
+              <img class="thumbnail" alt="" src="http://thumbnails.wdfiles.com/thumbnail/site/scp-el.wikidot.com/80.jpg"/>
             </a>
-            <h3><a target="_blank" href="http://05command.wikidot.com">O5 Command</a></h3>
+            <h3><a target="_blank" href="http://scp-el.wikidot.com">Το Ίδρυμα SCP</a></h3>
             <div class="desc">          
-              Why they changed it I can&#039;t say. People just liked it better that way
+              Ελληνόφωνo υποκατάστημα
             </div>
           </div>
         </div>
               <div class="unit">
           <div class="inner">
-            <a target="_blank" class="image" href="http://harvey-capital-lectures.wikidot.com">
-              <img class="thumbnail" alt="" src="http://thumbnails.wdfiles.com/thumbnail/site/harvey-capital-lectures.wikidot.com/80.jpg"/>
+            <a target="_blank" class="image" href="http://scp-th.wikidot.com">
+              <img class="thumbnail" alt="" src="http://thumbnails.wdfiles.com/thumbnail/site/scp-th.wikidot.com/80.jpg"/>
             </a>
-            <h3><a target="_blank" href="http://harvey-capital-lectures.wikidot.com">Harvey Capital Lectures</a></h3>
+            <h3><a target="_blank" href="http://scp-th.wikidot.com">สถาบัน SCP</a></h3>
             <div class="desc">          
-              Crowdsourced Transcription and Translation Project
+              ควบคุม, กักกัน, ป้องกัน
             </div>
           </div>
         </div>
               <div class="unit">
           <div class="inner">
-            <a target="_blank" class="image" href="http://rsc-wiki.net">
-              <img class="thumbnail" alt="" src="http://thumbnails.wdfiles.com/thumbnail/site/rsc-wiki.net/80.jpg"/>
+            <a target="_blank" class="image" href="http://www.reacha.org">
+              <img class="thumbnail" alt="" src="http://thumbnails.wdfiles.com/thumbnail/site/www.reacha.org/80.jpg"/>
             </a>
-            <h3><a target="_blank" href="http://rsc-wiki.net">RSC Institution</a></h3>
+            <h3><a target="_blank" href="http://www.reacha.org">REACHA</a></h3>
             <div class="desc">          
-              Research, Secure, Contain
+              &#039;reaching out...touching lives&#039;
             </div>
           </div>
         </div>

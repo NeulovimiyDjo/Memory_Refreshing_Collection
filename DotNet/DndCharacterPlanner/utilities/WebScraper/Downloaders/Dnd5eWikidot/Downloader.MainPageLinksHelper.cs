@@ -78,7 +78,7 @@ namespace WebScraper.Downloaders.Dnd5eWikidot
                 string url = ((IHtmlAnchorElement)linkElem).Href;
                 string fileName = linkElem.TextContent.Trim().Replace(" ", "_");
 
-                string filePath = $"{downloadedPagesDir}/{directoryName}/{fileName}.html.txt";
+                string filePath = $"{_downloadedPagesDir}/{directoryName}/{fileName}.html.txt";
                 CommonHelpers.DownloadPage(url, filePath);
             }
         }

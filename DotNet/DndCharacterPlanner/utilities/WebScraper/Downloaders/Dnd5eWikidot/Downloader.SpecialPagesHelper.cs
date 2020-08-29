@@ -16,10 +16,10 @@
             private static void DownloadSpecialPage(string url)
             {
                 string fileName = url
-                    .Replace(mainPageUrl, "")
+                    .Replace(_mainPageUrl, "")
                     .Replace(":", "_");
 
-                string filePath = $"{downloadedPagesDir}/special_pages/{fileName}.html.txt";
+                string filePath = $"{_downloadedPagesDir}/special_pages/{fileName}.html.txt";
 
                 CommonHelpers.DownloadPage(url, filePath);
             }

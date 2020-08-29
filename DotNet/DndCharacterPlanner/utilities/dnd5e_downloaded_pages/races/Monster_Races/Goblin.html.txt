@@ -23,7 +23,7 @@
         WIKIREQUEST.info.categoryId = 11887298;
         WIKIREQUEST.info.themeId = 2386862;
         WIKIREQUEST.info.requestPageName = "goblin";
-        OZONE.request.timestamp = 1598484477;
+        OZONE.request.timestamp = 1598502330;
         OZONE.request.date = new Date();
         WIKIREQUEST.info.lang = 'en';
                 WIKIREQUEST.info.pageUnixName = "goblin";
@@ -469,10 +469,32 @@ Powered by <a href="http://www.wikidot.com">Wikidot.com</a>
   <div class="units">
               <div class="unit">
           <div class="inner">
-            <a target="_blank" class="image" href="http://pofomultiquiz.wikidot.com">
-              <img class="thumbnail" alt="" src="http://thumbnails.wdfiles.com/thumbnail/site/pofomultiquiz.wikidot.com/80.jpg"/>
+            <a target="_blank" class="image" href="http://nimin.wikidot.com">
+              <img class="thumbnail" alt="" src="http://thumbnails.wdfiles.com/thumbnail/site/nimin.wikidot.com/80.jpg"/>
             </a>
-            <h3><a target="_blank" href="http://pofomultiquiz.wikidot.com">Pofo MultiQuiz</a></h3>
+            <h3><a target="_blank" href="http://nimin.wikidot.com">Nimin Wiki</a></h3>
+            <div class="desc">          
+              The best text-based mature RPG database that anyone can edit!
+            </div>
+          </div>
+        </div>
+              <div class="unit">
+          <div class="inner">
+            <a target="_blank" class="image" href="http://ds2010a.wikidot.com">
+              <img class="thumbnail" alt="" src="http://thumbnails.wdfiles.com/thumbnail/site/ds2010a.wikidot.com/80.jpg"/>
+            </a>
+            <h3><a target="_blank" href="http://ds2010a.wikidot.com">מבני נתונים</a></h3>
+            <div class="desc">          
+              סמסטר א&#039;, תשע&quot;א
+            </div>
+          </div>
+        </div>
+              <div class="unit">
+          <div class="inner">
+            <a target="_blank" class="image" href="http://chavezbraintrust.wikidot.com">
+              <img class="thumbnail" alt="" src="http://thumbnails.wdfiles.com/thumbnail/site/chavezbraintrust.wikidot.com/80.jpg"/>
+            </a>
+            <h3><a target="_blank" href="http://chavezbraintrust.wikidot.com">Chavez Brain Trust</a></h3>
             <div class="desc">          
               
             </div>
@@ -480,34 +502,12 @@ Powered by <a href="http://www.wikidot.com">Wikidot.com</a>
         </div>
               <div class="unit">
           <div class="inner">
-            <a target="_blank" class="image" href="http://scp-eq.org">
-              <img class="thumbnail" alt="" src="http://thumbnails.wdfiles.com/thumbnail/site/scp-eq.org/80.jpg"/>
+            <a target="_blank" class="image" href="http://musovarc.wikidot.com">
+              <img class="thumbnail" alt="" src="http://thumbnails.wdfiles.com/thumbnail/site/musovarc.wikidot.com/80.jpg"/>
             </a>
-            <h3><a target="_blank" href="http://scp-eq.org">SCP基金会小马国分部</a></h3>
+            <h3><a target="_blank" href="http://musovarc.wikidot.com">斯基的地下车库</a></h3>
             <div class="desc">          
-              控制 • 收容 • 保护
-            </div>
-          </div>
-        </div>
-              <div class="unit">
-          <div class="inner">
-            <a target="_blank" class="image" href="http://design-illustration.wikidot.com">
-              <img class="thumbnail" alt="" src="http://thumbnails.wdfiles.com/thumbnail/site/design-illustration.wikidot.com/80.jpg"/>
-            </a>
-            <h3><a target="_blank" href="http://design-illustration.wikidot.com">Design &amp; Illustration</a></h3>
-            <div class="desc">          
-              
-            </div>
-          </div>
-        </div>
-              <div class="unit">
-          <div class="inner">
-            <a target="_blank" class="image" href="http://stsandbox.wikidot.com">
-              <img class="thumbnail" alt="" src="http://thumbnails.wdfiles.com/thumbnail/site/stsandbox.wikidot.com/80.jpg"/>
-            </a>
-            <h3><a target="_blank" href="http://stsandbox.wikidot.com">小城沙盒站</a></h3>
-            <div class="desc">          
-              一起堆沙雕吧！
+              Let&#039;s keep it simple.
             </div>
           </div>
         </div>

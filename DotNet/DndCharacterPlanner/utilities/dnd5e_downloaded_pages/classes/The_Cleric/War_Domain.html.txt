@@ -23,7 +23,7 @@
         WIKIREQUEST.info.categoryId = 12803272;
         WIKIREQUEST.info.themeId = 2386862;
         WIKIREQUEST.info.requestPageName = "cleric:war";
-        OZONE.request.timestamp = 1598484516;
+        OZONE.request.timestamp = 1598502419;
         OZONE.request.date = new Date();
         WIKIREQUEST.info.lang = 'en';
                 WIKIREQUEST.info.pageUnixName = "cleric:war";
@@ -501,32 +501,10 @@ Powered by <a href="http://www.wikidot.com">Wikidot.com</a>
   <div class="units">
               <div class="unit">
           <div class="inner">
-            <a target="_blank" class="image" href="http://passatb5.wikidot.com">
-              <img class="thumbnail" alt="" src="http://thumbnails.wdfiles.com/thumbnail/site/passatb5.wikidot.com/80.jpg"/>
+            <a target="_blank" class="image" href="http://mainframes.wikidot.com">
+              <img class="thumbnail" alt="" src="http://thumbnails.wdfiles.com/thumbnail/site/mainframes.wikidot.com/80.jpg"/>
             </a>
-            <h3><a target="_blank" href="http://passatb5.wikidot.com">PassatB5</a></h3>
-            <div class="desc">          
-              Do It Yourself information for Passat Repair!
-            </div>
-          </div>
-        </div>
-              <div class="unit">
-          <div class="inner">
-            <a target="_blank" class="image" href="http://karma-lab.wikidot.com">
-              <img class="thumbnail" alt="" src="http://thumbnails.wdfiles.com/thumbnail/site/karma-lab.wikidot.com/80.jpg"/>
-            </a>
-            <h3><a target="_blank" href="http://karma-lab.wikidot.com">Karma-Lab</a></h3>
-            <div class="desc">          
-              KARMA Technology and the products incorporating it
-            </div>
-          </div>
-        </div>
-              <div class="unit">
-          <div class="inner">
-            <a target="_blank" class="image" href="http://crosswindsgarou.wikidot.com">
-              <img class="thumbnail" alt="" src="http://thumbnails.wdfiles.com/thumbnail/site/crosswindsgarou.wikidot.com/80.jpg"/>
-            </a>
-            <h3><a target="_blank" href="http://crosswindsgarou.wikidot.com">Crosswindsgarou</a></h3>
+            <h3><a target="_blank" href="http://mainframes.wikidot.com">Mainframes</a></h3>
             <div class="desc">          
               
             </div>
@@ -534,12 +512,34 @@ Powered by <a href="http://www.wikidot.com">Wikidot.com</a>
         </div>
               <div class="unit">
           <div class="inner">
-            <a target="_blank" class="image" href="http://scp-sandbox2-zh.wikidot.com">
-              <img class="thumbnail" alt="" src="http://thumbnails.wdfiles.com/thumbnail/site/scp-sandbox2-zh.wikidot.com/80.jpg"/>
+            <a target="_blank" class="image" href="http://me1065.wikidot.com">
+              <img class="thumbnail" alt="" src="http://thumbnails.wdfiles.com/thumbnail/site/me1065.wikidot.com/80.jpg"/>
             </a>
-            <h3><a target="_blank" href="http://scp-sandbox2-zh.wikidot.com">SCP繁中沙盒2.0</a></h3>
+            <h3><a target="_blank" href="http://me1065.wikidot.com">Thermal Systems</a></h3>
             <div class="desc">          
-              生命之沙，繁星之盒
+              
+            </div>
+          </div>
+        </div>
+              <div class="unit">
+          <div class="inner">
+            <a target="_blank" class="image" href="http://scion-mmp.wikidot.com">
+              <img class="thumbnail" alt="" src="http://thumbnails.wdfiles.com/thumbnail/site/scion-mmp.wikidot.com/80.jpg"/>
+            </a>
+            <h3><a target="_blank" href="http://scion-mmp.wikidot.com">Scion: Monsters and Mosh Pits</a></h3>
+            <div class="desc">          
+              
+            </div>
+          </div>
+        </div>
+              <div class="unit">
+          <div class="inner">
+            <a target="_blank" class="image" href="http://opend6.wikidot.com">
+              <img class="thumbnail" alt="" src="http://thumbnails.wdfiles.com/thumbnail/site/opend6.wikidot.com/80.jpg"/>
+            </a>
+            <h3><a target="_blank" href="http://opend6.wikidot.com">OpenD6</a></h3>
+            <div class="desc">          
+              The OpenD6 System Reference Document
             </div>
           </div>
         </div>

@@ -23,7 +23,7 @@
         WIKIREQUEST.info.categoryId = 12830144;
         WIKIREQUEST.info.themeId = 2386862;
         WIKIREQUEST.info.requestPageName = "warlock:kraken";
-        OZONE.request.timestamp = 1598484267;
+        OZONE.request.timestamp = 1598502406;
         OZONE.request.date = new Date();
         WIKIREQUEST.info.lang = 'en';
                 WIKIREQUEST.info.pageUnixName = "warlock:kraken";
@@ -501,45 +501,45 @@ Powered by <a href="http://www.wikidot.com">Wikidot.com</a>
   <div class="units">
               <div class="unit">
           <div class="inner">
-            <a target="_blank" class="image" href="http://anime-planet.wikidot.com">
-              <img class="thumbnail" alt="" src="http://thumbnails.wdfiles.com/thumbnail/site/anime-planet.wikidot.com/80.jpg"/>
+            <a target="_blank" class="image" href="http://rhetoricalgoddess.wikidot.com">
+              <img class="thumbnail" alt="" src="http://thumbnails.wdfiles.com/thumbnail/site/rhetoricalgoddess.wikidot.com/80.jpg"/>
             </a>
-            <h3><a target="_blank" href="http://anime-planet.wikidot.com">Anime Planet</a></h3>
+            <h3><a target="_blank" href="http://rhetoricalgoddess.wikidot.com">The Rhetorical Goddess Wiki</a></h3>
             <div class="desc">          
-              
+              Because the Truth and That Which Resembles It Belong to the Same Capacity
             </div>
           </div>
         </div>
               <div class="unit">
           <div class="inner">
-            <a target="_blank" class="image" href="http://margopedia.wikidot.com">
-              <img class="thumbnail" alt="" src="http://thumbnails.wdfiles.com/thumbnail/site/margopedia.wikidot.com/80.jpg"/>
+            <a target="_blank" class="image" href="http://caosinsurgente.wikidot.com">
+              <img class="thumbnail" alt="" src="http://thumbnails.wdfiles.com/thumbnail/site/caosinsurgente.wikidot.com/80.jpg"/>
             </a>
-            <h3><a target="_blank" href="http://margopedia.wikidot.com">Margopedia</a></h3>
+            <h3><a target="_blank" href="http://caosinsurgente.wikidot.com">La Insurgencia del Caos</a></h3>
             <div class="desc">          
-              Połączenie wikipedii i nonsensopedii...
+              Creando la Lógica De lo Ilógico
             </div>
           </div>
         </div>
               <div class="unit">
           <div class="inner">
-            <a target="_blank" class="image" href="http://windycity.wikidot.com">
-              <img class="thumbnail" alt="" src="http://thumbnails.wdfiles.com/thumbnail/site/windycity.wikidot.com/80.jpg"/>
+            <a target="_blank" class="image" href="http://castleage.wikidot.com">
+              <img class="thumbnail" alt="" src="http://thumbnails.wdfiles.com/thumbnail/site/castleage.wikidot.com/80.jpg"/>
             </a>
-            <h3><a target="_blank" href="http://windycity.wikidot.com">Windycity</a></h3>
+            <h3><a target="_blank" href="http://castleage.wikidot.com">Castle Age Wiki</a></h3>
             <div class="desc">          
-              MUX
+              Knowledge Database
             </div>
           </div>
         </div>
               <div class="unit">
           <div class="inner">
-            <a target="_blank" class="image" href="http://www.ci-cn-wiki.info">
-              <img class="thumbnail" alt="" src="http://thumbnails.wdfiles.com/thumbnail/site/www.ci-cn-wiki.info/80.jpg"/>
+            <a target="_blank" class="image" href="http://battlestargenesis.wikidot.com">
+              <img class="thumbnail" alt="" src="http://thumbnails.wdfiles.com/thumbnail/site/battlestargenesis.wikidot.com/80.jpg"/>
             </a>
-            <h3><a target="_blank" href="http://www.ci-cn-wiki.info">混沌分裂者</a></h3>
+            <h3><a target="_blank" href="http://battlestargenesis.wikidot.com">BATTLESTAR GENESIS MUSH</a></h3>
             <div class="desc">          
-              于无理之中创造逻辑
+              battlestar.isunlimited.net    3012
             </div>
           </div>
         </div>

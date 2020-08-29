@@ -425,8 +425,9 @@ export default {
                         ) !== -1;
 
                     if (
-                        state.character.classes[index].subclass.name ===
-                        'Hexblade'
+                        state.character.classes[index].subclass.name != undefined
+                        && state.character.classes[index].subclass.name
+                            .includes('Hexblade')
                     ) {
                         let isSpecialSpell = false;
                         switch (item.name) {

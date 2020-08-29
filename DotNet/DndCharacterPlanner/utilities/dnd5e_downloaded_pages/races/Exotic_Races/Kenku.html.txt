@@ -23,7 +23,7 @@
         WIKIREQUEST.info.categoryId = 11887298;
         WIKIREQUEST.info.themeId = 2386862;
         WIKIREQUEST.info.requestPageName = "kenku";
-        OZONE.request.timestamp = 1598484403;
+        OZONE.request.timestamp = 1598502255;
         OZONE.request.date = new Date();
         WIKIREQUEST.info.lang = 'en';
                 WIKIREQUEST.info.pageUnixName = "kenku";
@@ -469,32 +469,10 @@ Powered by <a href="http://www.wikidot.com">Wikidot.com</a>
   <div class="units">
               <div class="unit">
           <div class="inner">
-            <a target="_blank" class="image" href="http://windycity.wikidot.com">
-              <img class="thumbnail" alt="" src="http://thumbnails.wdfiles.com/thumbnail/site/windycity.wikidot.com/80.jpg"/>
+            <a target="_blank" class="image" href="http://kill-all-uglies.wikidot.com">
+              <img class="thumbnail" alt="" src="http://thumbnails.wdfiles.com/thumbnail/site/kill-all-uglies.wikidot.com/80.jpg"/>
             </a>
-            <h3><a target="_blank" href="http://windycity.wikidot.com">Windycity</a></h3>
-            <div class="desc">          
-              MUX
-            </div>
-          </div>
-        </div>
-              <div class="unit">
-          <div class="inner">
-            <a target="_blank" class="image" href="http://fortean.wikidot.com">
-              <img class="thumbnail" alt="" src="http://thumbnails.wdfiles.com/thumbnail/site/fortean.wikidot.com/80.jpg"/>
-            </a>
-            <h3><a target="_blank" href="http://fortean.wikidot.com">Forteana: The Fortean Wiki</a></h3>
-            <div class="desc">          
-              The World of Strange Phenomena
-            </div>
-          </div>
-        </div>
-              <div class="unit">
-          <div class="inner">
-            <a target="_blank" class="image" href="http://amiii.wikidot.com">
-              <img class="thumbnail" alt="" src="http://thumbnails.wdfiles.com/thumbnail/site/amiii.wikidot.com/80.jpg"/>
-            </a>
-            <h3><a target="_blank" href="http://amiii.wikidot.com">Análise Matemática III</a></h3>
+            <h3><a target="_blank" href="http://kill-all-uglies.wikidot.com">Kill All Uglies Wiki</a></h3>
             <div class="desc">          
               
             </div>
@@ -502,12 +480,34 @@ Powered by <a href="http://www.wikidot.com">Wikidot.com</a>
         </div>
               <div class="unit">
           <div class="inner">
-            <a target="_blank" class="image" href="http://philippines.actor-atlas.info">
-              <img class="thumbnail" alt="" src="http://thumbnails.wdfiles.com/thumbnail/site/philippines.actor-atlas.info/80.jpg"/>
+            <a target="_blank" class="image" href="http://string-theory.wikidot.com">
+              <img class="thumbnail" alt="" src="http://thumbnails.wdfiles.com/thumbnail/site/string-theory.wikidot.com/80.jpg"/>
             </a>
-            <h3><a target="_blank" href="http://philippines.actor-atlas.info">Philippines        #tagcoding</a></h3>
+            <h3><a target="_blank" href="http://string-theory.wikidot.com">String Theory MUX</a></h3>
+            <div class="desc">          
+              Connect to string-theory.mudhosting.net, port 3017
+            </div>
+          </div>
+        </div>
+              <div class="unit">
+          <div class="inner">
+            <a target="_blank" class="image" href="http://enchantedbros.wikidot.com">
+              <img class="thumbnail" alt="" src="http://thumbnails.wdfiles.com/thumbnail/site/enchantedbros.wikidot.com/80.jpg"/>
+            </a>
+            <h3><a target="_blank" href="http://enchantedbros.wikidot.com">Enchanted Bros wiki</a></h3>
             <div class="desc">          
               
+            </div>
+          </div>
+        </div>
+              <div class="unit">
+          <div class="inner">
+            <a target="_blank" class="image" href="http://wikirhye.wikidot.com">
+              <img class="thumbnail" alt="" src="http://thumbnails.wdfiles.com/thumbnail/site/wikirhye.wikidot.com/80.jpg"/>
+            </a>
+            <h3><a target="_blank" href="http://wikirhye.wikidot.com">Rhye&#039;s of Wiki</a></h3>
+            <div class="desc">          
+              Wiki for Rhye&#039;s mods and general awesomeness
             </div>
           </div>
         </div>

@@ -25,7 +25,7 @@ namespace WebScraper.Downloaders.Dnd5eWikidot
             {
                 Console.WriteLine($"Downloading {url}");
 
-                var request = httpClient.GetAsync(url);
+                var request = _httpClient.GetAsync(url);
                 var response = request.Result.Content.ReadAsStringAsync();
 
                 return response.Result;

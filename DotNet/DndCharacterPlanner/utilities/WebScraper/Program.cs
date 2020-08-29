@@ -1,154 +1,59 @@
 ﻿using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
 using System.IO;
 using WebScraper.Downloaders.Dnd5eWikidot;
 using WebScraper.Models;
-using WebScraper.Parsers;
+using WebScraper.Parsers.Dnd5eWikidot;
+using WebScraper.Printers;
 
 namespace WebScraper
 {
-    class Program
+    public static class Program
     {
+        private static readonly string _downloadedPagesDir;
+        private static readonly string _serverDataDir;
+
+        static Program()
+        {
+            string webScraperProjectDir = Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).Parent.Parent.Parent.FullName;
+            
+            _downloadedPagesDir = webScraperProjectDir + "/../dnd5e_downloaded_pages";
+            _serverDataDir = webScraperProjectDir + "/../../server/Data";
+
+            Parser._downloadedPagesDir = _downloadedPagesDir;
+        }
+
+
         static void Main(string[] args)
         {
-            Downloader.DownloadAllWikidotPages(); return;
-            string webScraperProjectDir = Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).Parent.Parent.Parent.FullName;
-
-            Config.DownloadedPagesDir = webScraperProjectDir + "/../webscraper_downloaded_pages";
-            Config.ServerDataDir = webScraperProjectDir + "/../../server/Data";
-
-
-            ScrapeFiles();
-            return;
-
             if (args.Length < 1) return;
-            if (args.Length > 1 && args[1] == "--silent") Config.Silent = true;
 
 
-
-            if (args[0] == "--scrape-files")
+            if (args[0] == "--download")
             {
-                ScrapeFiles();
+                Downloader.DownloadAllWikidotPages();
             }
-            else if (args[0] == "--download-pages")
+            else if(args[0] == "--save")
             {
-                Parser.DownloadPages();
+                Database db = Parser.CreateDbFromDownloadedPages();
+                SaveObject(db, "database.json");
             }
             else if (args[0] == "--print")
             {
-                Database db = Parser.ScrapeFiles();
-
-                PrintSpells(db.spells);
-                PrintClasses(db.classes);
+                Database db = Parser.CreateDbFromDownloadedPages();
+                Printer.Print(db);
             }
         }
 
-        private static void ScrapeFiles()
-        {
-            Directory.CreateDirectory(Config.ServerDataDir);
-
-            Database db = Parser.ScrapeFiles();
-            SaveObject(db, "database.json");
-        }
 
         private static void SaveObject(dynamic obj, string fileName)
         {
-            using (var fs = File.CreateText(Config.ServerDataDir + "/" + fileName))
-            {
-                var serializer = new JsonSerializer();
-                serializer.Serialize(fs, obj);
-            }
+            Directory.CreateDirectory(_serverDataDir);
+            using var fs = File.CreateText(_serverDataDir + "/" + fileName);
+
+            var serializer = new JsonSerializer();
+            serializer.Serialize(fs, obj);
         }
 
-
-        private static void PrintSpells(List<Spell> spells)
-        {
-            foreach (var spell in spells)
-            {
-                Console.WriteLine("Name: " + spell.name);
-
-                foreach (var category in spell.categories)
-                {
-                    Console.WriteLine("Category: " + category);
-                }
-
-                Console.WriteLine("Time: " + spell.time);
-                Console.WriteLine("Range: " + spell.range);
-                Console.WriteLine("Components: " + spell.components);
-                Console.WriteLine("Duration: " + spell.duration);
-
-                Console.WriteLine("Description: " + spell.description);
-
-                Console.WriteLine("Save: " + spell.save);
-                Console.WriteLine("Ritual: " + spell.ritual);
-                Console.WriteLine("Concentration: " + spell.concentration);
-
-                Console.WriteLine();
-            }
-        }
-
-
-        private static void PrintClasses(Dictionary<string, Class> classes)
-        {
-            foreach (var cls in classes.Values)
-            {
-                Console.WriteLine("=======================================================================");
-
-                Console.WriteLine("Class Name: " + cls.name);
-                Console.WriteLine("Description: " + cls.description);
-                Console.WriteLine("Requirement: " + cls.requirement);
-
-                Console.Write("Feats Increases: [");
-                bool first = true;
-                foreach (var lvl in cls.feats)
-                {
-                    if (first) first = false; else Console.Write(",");
-                    Console.Write(lvl);
-                }
-                Console.WriteLine("]");
-
-                foreach (var ability in cls.abilities)
-                {
-                    Console.WriteLine();
-                    Console.WriteLine("Ability: " + ability.name + " (" + ability.level + ")");
-                    Console.WriteLine(ability.description);
-
-                    foreach (var option in ability.options)
-                    {
-                        Console.WriteLine("Option: " + option.name);
-                        Console.WriteLine(option.description);
-                    }
-                }
-
-                foreach (var subclass in cls.subclasses.Values)
-                {
-                    Console.WriteLine("------------------------------------------------------------------");
-
-                    Console.WriteLine("Subclass Name: " + subclass.name);
-                    Console.WriteLine("Subclass Description: " + subclass.description);
-
-                    foreach (var ability in subclass.abilities)
-                    {
-                        Console.WriteLine();
-                        Console.WriteLine("Subclass Ability: " + ability.name + " (" + ability.level + ")");
-                        Console.WriteLine(ability.description);
-
-                        foreach (var option in ability.options)
-                        {
-                            Console.WriteLine("Option: " + option.name);
-                            Console.WriteLine(option.description);
-                        }
-                    }
-
-                    Console.WriteLine("------------------------------------------------------------------");
-                    Console.WriteLine();
-                }
-
-                Console.WriteLine("=======================================================================");
-                Console.WriteLine();
-                Console.WriteLine();
-            }
-        }
     }
 }

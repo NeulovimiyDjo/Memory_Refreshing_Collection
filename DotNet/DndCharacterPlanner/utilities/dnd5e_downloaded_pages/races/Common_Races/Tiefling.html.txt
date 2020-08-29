@@ -23,7 +23,7 @@
         WIKIREQUEST.info.categoryId = 11887298;
         WIKIREQUEST.info.themeId = 2386862;
         WIKIREQUEST.info.requestPageName = "tiefling";
-        OZONE.request.timestamp = 1598484471;
+        OZONE.request.timestamp = 1598502439;
         OZONE.request.date = new Date();
         WIKIREQUEST.info.lang = 'en';
                 WIKIREQUEST.info.pageUnixName = "tiefling";
@@ -556,10 +556,21 @@ Powered by <a href="http://www.wikidot.com">Wikidot.com</a>
   <div class="units">
               <div class="unit">
           <div class="inner">
-            <a target="_blank" class="image" href="http://wiki.pkp.in">
-              <img class="thumbnail" alt="" src="http://thumbnails.wdfiles.com/thumbnail/site/wiki.pkp.in/80.jpg"/>
+            <a target="_blank" class="image" href="http://alpha-1.wikidot.com">
+              <img class="thumbnail" alt="" src="http://thumbnails.wdfiles.com/thumbnail/site/alpha-1.wikidot.com/80.jpg"/>
             </a>
-            <h3><a target="_blank" href="http://wiki.pkp.in">Wiki.PKP.in</a></h3>
+            <h3><a target="_blank" href="http://alpha-1.wikidot.com">Red Right Hand</a></h3>
+            <div class="desc">          
+              Protectors Of The High Council
+            </div>
+          </div>
+        </div>
+              <div class="unit">
+          <div class="inner">
+            <a target="_blank" class="image" href="http://hopkinswhpg.wikidot.com">
+              <img class="thumbnail" alt="" src="http://thumbnails.wdfiles.com/thumbnail/site/hopkinswhpg.wikidot.com/80.jpg"/>
+            </a>
+            <h3><a target="_blank" href="http://hopkinswhpg.wikidot.com">World History/Physical Geo.</a></h3>
             <div class="desc">          
               
             </div>
@@ -567,34 +578,23 @@ Powered by <a href="http://www.wikidot.com">Wikidot.com</a>
         </div>
               <div class="unit">
           <div class="inner">
-            <a target="_blank" class="image" href="http://wiki.2cgaming.com">
-              <img class="thumbnail" alt="" src="http://thumbnails.wdfiles.com/thumbnail/site/wiki.2cgaming.com/80.jpg"/>
+            <a target="_blank" class="image" href="http://iaac-readings.wikidot.com">
+              <img class="thumbnail" alt="" src="http://thumbnails.wdfiles.com/thumbnail/site/iaac-readings.wikidot.com/80.jpg"/>
             </a>
-            <h3><a target="_blank" href="http://wiki.2cgaming.com">2CGaming Wiki</a></h3>
+            <h3><a target="_blank" href="http://iaac-readings.wikidot.com">iaac emergent culture glossary</a></h3>
             <div class="desc">          
-              A compilation of 2CGaming materials for ease of reference
+              words, words, words
             </div>
           </div>
         </div>
               <div class="unit">
           <div class="inner">
-            <a target="_blank" class="image" href="http://spaceepicuntitled.wikidot.com">
-              <img class="thumbnail" alt="" src="http://thumbnails.wdfiles.com/thumbnail/site/spaceepicuntitled.wikidot.com/80.jpg"/>
+            <a target="_blank" class="image" href="http://sandbox.scp-wiki.kr">
+              <img class="thumbnail" alt="" src="http://thumbnails.wdfiles.com/thumbnail/site/sandbox.scp-wiki.kr/80.jpg"/>
             </a>
-            <h3><a target="_blank" href="http://spaceepicuntitled.wikidot.com">Space Epic Untitled</a></h3>
+            <h3><a target="_blank" href="http://sandbox.scp-wiki.kr">SB-KO1</a></h3>
             <div class="desc">          
-              From KUMA Games
-            </div>
-          </div>
-        </div>
-              <div class="unit">
-          <div class="inner">
-            <a target="_blank" class="image" href="http://soulslore.wikidot.com">
-              <img class="thumbnail" alt="" src="http://thumbnails.wdfiles.com/thumbnail/site/soulslore.wikidot.com/80.jpg"/>
-            </a>
-            <h3><a target="_blank" href="http://soulslore.wikidot.com">Souls Lore</a></h3>
-            <div class="desc">          
-              
+              SCP-KO 샌드박스 초호기
             </div>
           </div>
         </div>

@@ -23,7 +23,7 @@
         WIKIREQUEST.info.categoryId = 12804671;
         WIKIREQUEST.info.themeId = 2386862;
         WIKIREQUEST.info.requestPageName = "fighter:psi-knight";
-        OZONE.request.timestamp = 1598484369;
+        OZONE.request.timestamp = 1598502299;
         OZONE.request.date = new Date();
         WIKIREQUEST.info.lang = 'en';
                 WIKIREQUEST.info.pageUnixName = "fighter:psi-knight";
@@ -482,21 +482,10 @@ Powered by <a href="http://www.wikidot.com">Wikidot.com</a>
   <div class="units">
               <div class="unit">
           <div class="inner">
-            <a target="_blank" class="image" href="http://gamedesign.wikidot.com">
-              <img class="thumbnail" alt="" src="http://thumbnails.wdfiles.com/thumbnail/site/gamedesign.wikidot.com/80.jpg"/>
+            <a target="_blank" class="image" href="http://kill-all-uglies.wikidot.com">
+              <img class="thumbnail" alt="" src="http://thumbnails.wdfiles.com/thumbnail/site/kill-all-uglies.wikidot.com/80.jpg"/>
             </a>
-            <h3><a target="_blank" href="http://gamedesign.wikidot.com">Game Design Novice</a></h3>
-            <div class="desc">          
-              Learn to make video games.
-            </div>
-          </div>
-        </div>
-              <div class="unit">
-          <div class="inner">
-            <a target="_blank" class="image" href="http://alveslima-edu.wikidot.com">
-              <img class="thumbnail" alt="" src="http://thumbnails.wdfiles.com/thumbnail/site/alveslima-edu.wikidot.com/80.jpg"/>
-            </a>
-            <h3><a target="_blank" href="http://alveslima-edu.wikidot.com">WIKEDUCAÇÃO</a></h3>
+            <h3><a target="_blank" href="http://kill-all-uglies.wikidot.com">Kill All Uglies Wiki</a></h3>
             <div class="desc">          
               
             </div>
@@ -504,23 +493,34 @@ Powered by <a href="http://www.wikidot.com">Wikidot.com</a>
         </div>
               <div class="unit">
           <div class="inner">
-            <a target="_blank" class="image" href="http://energyfuture.wikidot.com">
-              <img class="thumbnail" alt="" src="http://thumbnails.wdfiles.com/thumbnail/site/energyfuture.wikidot.com/80.jpg"/>
+            <a target="_blank" class="image" href="http://championsashes.wikidot.com">
+              <img class="thumbnail" alt="" src="http://thumbnails.wdfiles.com/thumbnail/site/championsashes.wikidot.com/80.jpg"/>
             </a>
-            <h3><a target="_blank" href="http://energyfuture.wikidot.com">The Future of Energy</a></h3>
+            <h3><a target="_blank" href="http://championsashes.wikidot.com">Champion&#039;s Ashes</a></h3>
             <div class="desc">          
-              Analyzing The Options
+              The Official Wiki For Dark Souls III: Champion&#039;s Ashes
             </div>
           </div>
         </div>
               <div class="unit">
           <div class="inner">
-            <a target="_blank" class="image" href="http://wqa.wikidot.com">
-              <img class="thumbnail" alt="" src="http://thumbnails.wdfiles.com/thumbnail/site/wqa.wikidot.com/80.jpg"/>
+            <a target="_blank" class="image" href="http://romeo-memo2.wikidot.com">
+              <img class="thumbnail" alt="" src="http://thumbnails.wdfiles.com/thumbnail/site/romeo-memo2.wikidot.com/80.jpg"/>
             </a>
-            <h3><a target="_blank" href="http://wqa.wikidot.com">.</a></h3>
+            <h3><a target="_blank" href="http://romeo-memo2.wikidot.com">ROMEO measurement campaign</a></h3>
             <div class="desc">          
-              wqa wiki
+              Romanian Methane Emissions from Oil &amp; Gas
+            </div>
+          </div>
+        </div>
+              <div class="unit">
+          <div class="inner">
+            <a target="_blank" class="image" href="http://advent-ro.wikidot.com">
+              <img class="thumbnail" alt="" src="http://thumbnails.wdfiles.com/thumbnail/site/advent-ro.wikidot.com/80.jpg"/>
+            </a>
+            <h3><a target="_blank" href="http://advent-ro.wikidot.com">AdventRO Wiki</a></h3>
+            <div class="desc">          
+              
             </div>
           </div>
         </div>

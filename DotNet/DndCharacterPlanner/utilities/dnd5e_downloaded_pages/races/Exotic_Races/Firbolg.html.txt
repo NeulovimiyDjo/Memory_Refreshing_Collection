@@ -23,7 +23,7 @@
         WIKIREQUEST.info.categoryId = 11887298;
         WIKIREQUEST.info.themeId = 2386862;
         WIKIREQUEST.info.requestPageName = "firbolg";
-        OZONE.request.timestamp = 1598484395;
+        OZONE.request.timestamp = 1598502347;
         OZONE.request.date = new Date();
         WIKIREQUEST.info.lang = 'en';
                 WIKIREQUEST.info.pageUnixName = "firbolg";
@@ -470,45 +470,45 @@ Powered by <a href="http://www.wikidot.com">Wikidot.com</a>
   <div class="units">
               <div class="unit">
           <div class="inner">
-            <a target="_blank" class="image" href="http://musovarc.wikidot.com">
-              <img class="thumbnail" alt="" src="http://thumbnails.wdfiles.com/thumbnail/site/musovarc.wikidot.com/80.jpg"/>
+            <a target="_blank" class="image" href="http://nirn.wikidot.com">
+              <img class="thumbnail" alt="" src="http://thumbnails.wdfiles.com/thumbnail/site/nirn.wikidot.com/80.jpg"/>
             </a>
-            <h3><a target="_blank" href="http://musovarc.wikidot.com">斯基的地下车库</a></h3>
+            <h3><a target="_blank" href="http://nirn.wikidot.com">Nirn</a></h3>
             <div class="desc">          
-              Let&#039;s keep it simple.
+              The Nirn Project
             </div>
           </div>
         </div>
               <div class="unit">
           <div class="inner">
-            <a target="_blank" class="image" href="http://autorytet-rpc.pl">
-              <img class="thumbnail" alt="" src="http://thumbnails.wdfiles.com/thumbnail/site/autorytet-rpc.pl/80.jpg"/>
+            <a target="_blank" class="image" href="http://psychotronicsdivision.wikidot.com">
+              <img class="thumbnail" alt="" src="http://thumbnails.wdfiles.com/thumbnail/site/psychotronicsdivision.wikidot.com/80.jpg"/>
             </a>
-            <h3><a target="_blank" href="http://autorytet-rpc.pl">Autorytet RPC</a></h3>
+            <h3><a target="_blank" href="http://psychotronicsdivision.wikidot.com">Psychotronics Division</a></h3>
             <div class="desc">          
-              Badania, Ochrona, Przechowywanie
+              Divided, we are One. One, we are All.
             </div>
           </div>
         </div>
               <div class="unit">
           <div class="inner">
-            <a target="_blank" class="image" href="http://www.rpc-wiki.net">
-              <img class="thumbnail" alt="" src="http://thumbnails.wdfiles.com/thumbnail/site/www.rpc-wiki.net/80.jpg"/>
+            <a target="_blank" class="image" href="http://paganmichigan.wikidot.com">
+              <img class="thumbnail" alt="" src="http://thumbnails.wdfiles.com/thumbnail/site/paganmichigan.wikidot.com/80.jpg"/>
             </a>
-            <h3><a target="_blank" href="http://www.rpc-wiki.net">RPC Authority</a></h3>
+            <h3><a target="_blank" href="http://paganmichigan.wikidot.com">Pagan Michigan</a></h3>
             <div class="desc">          
-              Research, Protection, Containment
+              News and Networking for the Pagan Community of Michigan
             </div>
           </div>
         </div>
               <div class="unit">
           <div class="inner">
-            <a target="_blank" class="image" href="http://projects.wikidot.com">
-              <img class="thumbnail" alt="" src="http://thumbnails.wdfiles.com/thumbnail/site/projects.wikidot.com/80.jpg"/>
+            <a target="_blank" class="image" href="http://mactutorial.wikidot.com">
+              <img class="thumbnail" alt="" src="http://thumbnails.wdfiles.com/thumbnail/site/mactutorial.wikidot.com/80.jpg"/>
             </a>
-            <h3><a target="_blank" href="http://projects.wikidot.com">projects.wikidot.com</a></h3>
+            <h3><a target="_blank" href="http://mactutorial.wikidot.com">Mac Video Tutorial</a></h3>
             <div class="desc">          
-              Wikidot Projects Forum
+              Mac OS X video tutorial i18n subtitles project
             </div>
           </div>
         </div>

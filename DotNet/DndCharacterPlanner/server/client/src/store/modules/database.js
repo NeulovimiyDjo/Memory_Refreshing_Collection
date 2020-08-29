@@ -179,6 +179,8 @@ export default {
                     ](option, 'spell', index);
 
                     return satisfiesCharacterConfig && !alreadyChosen;
+                }).sort((bigger, smaller) => {
+                    return bigger.level - smaller.level
                 });
             } else {
                 return ability.options.filter((option) => {
@@ -279,6 +281,8 @@ export default {
                 ](cantrip, 'cantrip', index);
 
                 return satisfiesCharacterConfig && !alreadyChosen;
+            }).sort((bigger, smaller) => {
+                return bigger.level - smaller.level
             });
         },
 
@@ -313,6 +317,8 @@ export default {
                 ](spell, 'spell', index);
 
                 return satisfiesCharacterConfig && !alreadyChosen;
+            }).sort((bigger, smaller) => {
+                return bigger.level - smaller.level
             });
         },
     },

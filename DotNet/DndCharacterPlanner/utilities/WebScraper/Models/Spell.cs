@@ -1,4 +1,4 @@
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 
@@ -23,14 +23,14 @@ namespace WebScraper.Models
 
         public string description;
 
-        public string save;
-        public bool ritual;
-        public bool concentration;
+        public string save; // was only used in old spell parser?
+        public bool ritual; // was only used in old spell parser?
+        public bool concentration; // was only used in old spell parser?
 
-        public string source;
+        public string source; // was only used in old spell parser?
 
         [JsonIgnore]
-        public List<string> categories;
+        public List<string> categories; // needed for old spells parser only
 
 
         public void SetLevel()

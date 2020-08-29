@@ -7,27 +7,28 @@ namespace WebScraper.Downloaders.Dnd5eWikidot
 {
     public static partial class Downloader
     {
-        private const string mainPageUrl = "http://dnd5e.wikidot.com";
-        private static readonly string downloadedPagesDir;
+        private const string _mainPageUrl = "http://dnd5e.wikidot.com";
+        private static readonly string _downloadedPagesDir;
 
-        private static readonly HttpClient httpClient = new HttpClient();
+        private static readonly HttpClient _httpClient = new HttpClient();
 
         static Downloader()
         {
             string webScraperProjectDir = Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory).Parent.Parent.Parent.FullName;
-            downloadedPagesDir = webScraperProjectDir + "/../dnd5e_downloaded_pages";
+            _downloadedPagesDir = webScraperProjectDir + "/../dnd5e_downloaded_pages";
         }
 
 
         public static void DownloadAllWikidotPages()
         {
-            string mainPageHtml = CommonHelpers.GetHtmlFromUrl(mainPageUrl);
+            string mainPageHtml = CommonHelpers.GetHtmlFromUrl(_mainPageUrl);
 
             var parser = new HtmlParser();
             var document = parser.Parse(mainPageHtml);
 
-            CommonHelpers.SavePage(mainPageHtml, "{downloadedPagesDir}/MainPage.html.txt");
+            CommonHelpers.SavePage(mainPageHtml, $"{_downloadedPagesDir}/MainPage.html.txt");
             MainPageLinksHelper.DownloadAllPagesInDocument(document);
+            SpellPagesHelper.DownloadAllSpellPages();
             SpecialPagesHelper.DownloadAllSpecialPages();
         }
     }

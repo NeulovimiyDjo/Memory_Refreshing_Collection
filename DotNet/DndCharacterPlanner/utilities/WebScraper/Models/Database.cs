@@ -19,7 +19,7 @@ namespace WebScraper.Models
         public List<Spell> spellsAndCantrips;
 
 
-        public void DoPostParsing()
+        public void DoPostParsing(bool useOldSpellParser = false)
         {
             int featIdCounter = 200;
             int spellIdCounter = 400;
@@ -34,7 +34,6 @@ namespace WebScraper.Models
             int optionIdCounter = 5000;
 
 
-            feats.RemoveAll(f => f.name.Contains("(UA)"));
             foreach (var feat in feats)
             {
                 feat.id = featIdCounter++;
@@ -45,13 +44,15 @@ namespace WebScraper.Models
             foreach (var spell in spellsAndCantrips)
             {
                 spell.id = spellIdCounter++;
-                spell.SetLevel();
-                spell.SetClasses();
-                spell.SetSchool();
-                spell.SetSource();
-            }
 
-            spellsAndCantrips.RemoveAll(s => s.source != "PHB" && s.source != "XGTE");
+                if (useOldSpellParser)
+                {
+                    spell.SetLevel();
+                    spell.SetClasses();
+                    spell.SetSchool();
+                    spell.SetSource();
+                }
+            }
 
             cantrips = (from s in spellsAndCantrips where s.level == 0 select s).ToList();
             spells = (from s in spellsAndCantrips where s.level > 0 select s).ToList();
@@ -85,7 +86,6 @@ namespace WebScraper.Models
                     }
 
 
-                    a.options.RemoveAll(o => o.name.Contains("(UA)"));
                     foreach (var o in a.options)
                     {
                         o.id = optionIdCounter++;
@@ -93,21 +93,6 @@ namespace WebScraper.Models
                     }
                 }
 
-
-
-                var toRemoveList = new List<string>();
-                foreach (var sub in race.subraces.Values)
-                {
-                    if (sub.name.Contains(" HB") || sub.name.Contains("(HB)"))
-                    {
-                        toRemoveList.Add(sub.name);
-                    }
-                }
-
-                foreach (var subName in toRemoveList)
-                {
-                    race.subraces.Remove(subName);
-                }
 
 
                 foreach (var sub in race.subraces.Values)
@@ -139,7 +124,6 @@ namespace WebScraper.Models
                         }
 
 
-                        a.options.RemoveAll(o => o.name.Contains("(UA)"));
                         foreach (var o in a.options)
                         {
                             o.id = optionIdCounter++;
@@ -178,7 +162,6 @@ namespace WebScraper.Models
                     }
 
 
-                    a.options.RemoveAll(o => o.name.Contains("(UA)"));
                     foreach (var o in a.options)
                     {
                         o.id = optionIdCounter++;
@@ -219,7 +202,6 @@ namespace WebScraper.Models
                         }
 
 
-                        a.options.RemoveAll(o => o.name.Contains("(UA)"));
                         foreach (var o in a.options)
                         {
                             o.id = optionIdCounter++;

@@ -40,7 +40,7 @@
                 <p>+2</p>
                 <select
                     @click.stop
-                    :value="selected1"
+                    :value="dynamicSelected1"
                     @change="selected1Changed($event)"
                 >
                     <option
@@ -60,7 +60,7 @@
                 <p>+1</p>
                 <select
                     @click.stop
-                    :value="selected1"
+                    :value="dynamicSelected1"
                     @change="selected1Changed($event)"
                 >
                     <option
@@ -145,6 +145,25 @@ export default {
             return this.statTypes.filter((t) => t !== this.selected2);
         },
 
+        dynamicSelected1() {
+            switch (this.item.name) {
+                case 'Observant':
+                    return 'int';
+                case 'Elven Accuracy':
+                    return 'dex';
+                case 'Fade Away':
+                    return 'dex';
+                case 'Fey Teleportation':
+                    return 'int';
+                case 'Flames of Plegethos':
+                    return 'int';
+                case 'Second Chance':
+                    return 'dex';
+                default:
+                    return 'str';
+            }
+        },
+
         statTypesFiltered() {
             switch (this.item.name) {
                 case 'Athlete':
@@ -153,8 +172,6 @@ export default {
                 case 'Weapon Master':
                     return ['str', 'dex'];
                 case 'Observant':
-                    this.selected1 = 'int';
-                    this.changeItem();
                     return ['int', 'wis'];
                 case 'Tavern Brawler':
                     return ['str', 'con'];
@@ -163,26 +180,16 @@ export default {
                 case 'Dragon Hide':
                     return ['str', 'con', 'cha'];
                 case 'Elven Accuracy':
-                    this.selected1 = 'dex';
-                    this.changeItem();
                     return ['dex', 'int', 'wis', 'cha'];
                 case 'Fade Away':
-                    this.selected1 = 'dex';
-                    this.changeItem();
                     return ['dex', 'int'];
                 case 'Fey Teleportation':
-                    this.selected1 = 'int';
-                    this.changeItem();
                     return ['int', 'cha'];
                 case 'Flames of Plegethos':
-                    this.selected1 = 'int';
-                    this.changeItem();
                     return ['int', 'cha'];
                 case 'Orcish Fury':
                     return ['str', 'con'];
                 case 'Second Chance':
-                    this.selected1 = 'dex';
-                    this.changeItem();
                     return ['dex', 'con', 'cha'];
                 case 'Squat Nibleness':
                     return ['str', 'dex'];
