@@ -1,0 +1,13 @@
+﻿@inherits ComponentBase
+
+<h3>Images</h3>
+
+<p>
+    <input @ref="_files" type="file" multiple />
+</p>
+
+@if (_filesIds != null)
+@foreach (string id in _filesIds)
+{
+    <img src="/images/getfile/@id" />
+}
