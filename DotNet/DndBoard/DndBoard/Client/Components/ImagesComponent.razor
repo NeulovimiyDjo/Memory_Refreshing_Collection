@@ -2,12 +2,13 @@
 
 <h3>Images</h3>
 
+@_boardId
 <p>
     <input @ref="_files" type="file" multiple />
 </p>
 
 @if (_filesIds != null)
-@foreach (string id in _filesIds)
+@foreach (string fileId in _filesIds)
 {
-    <img src="/images/getfile/@id" />
+    <img @ref="_filesRefs[fileId]" src="/images/getfile/@_boardId/@fileId" />
 }

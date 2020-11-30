@@ -26,11 +26,17 @@ namespace DndBoard.Client.Helpers
         public async Task CloseConnectionAsync() =>
             await _hubConnection.DisposeAsync();
 
+        public void SetConnectedHandler(Action<string> handler) =>
+            _hubConnection.On(BoardsHubContract.Connected, handler);
+
         public void SetCoordsReceivedHandler(Action<string> handler) =>
             _hubConnection.On(BoardsHubContract.CoordsChanged, handler);
 
-        public async Task SendCoordsAsync(string coords) =>
-            await _hubConnection.SendAsync(BoardsHubContract.CoordsChanged, _boardId, coords);
+        public void SetNofifyFilesUpdateHandler(Action<string> handler) =>
+           _hubConnection.On(BoardsHubContract.NotifyFilesUpdate, handler);
+
+        public async Task SendCoordsAsync(string coordsJson) =>
+            await _hubConnection.SendAsync(BoardsHubContract.CoordsChanged, _boardId, coordsJson);
 
         public async Task ConnectAsync(string boardId)
         {

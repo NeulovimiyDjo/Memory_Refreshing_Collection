@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
 using Blazor.Extensions;
+using DndBoard.Shared;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.JSInterop;
@@ -20,7 +21,7 @@ namespace DndBoard.Client.BaseComponents
         protected IJSRuntime JsRuntime { get; set; }
 
 
-        protected async Task<(double, double)> GetCanvasCoordinatesAsync(MouseEventArgs mouseEventArgs)
+        protected async Task<Coords> GetCanvasCoordinatesAsync(MouseEventArgs mouseEventArgs)
         {
             string data = await JsRuntime.InvokeAsync<string>(
                 "getElementOffsets",
@@ -30,7 +31,7 @@ namespace DndBoard.Client.BaseComponents
             JObject offsets = (JObject)JsonConvert.DeserializeObject(data);
             double mouseX = mouseEventArgs.ClientX - offsets.Value<double>("offsetLeft");
             double mouseY = mouseEventArgs.ClientY - offsets.Value<double>("offsetTop");
-            return (mouseX, mouseY);
+            return new Coords { X = mouseX, Y = mouseY };
         }
     }
 }

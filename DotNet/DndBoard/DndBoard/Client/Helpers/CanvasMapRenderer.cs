@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using Blazor.Extensions;
 using Blazor.Extensions.Canvas.Canvas2D;
+using DndBoard.Shared;
 using Microsoft.AspNetCore.Components;
 
 namespace DndBoard.Client.Helpers
@@ -11,9 +13,9 @@ namespace DndBoard.Client.Helpers
     {
         private static SemaphoreSlim _semaphore = new SemaphoreSlim(1);
         public async Task RedrawImagesByCoords(
-            double x, double y,
+            List<Coords> coords,
             BECanvasComponent canvas,
-            ElementReference image)
+            ElementReference[] images)
         {
             await _semaphore.WaitAsync();
             try
@@ -22,7 +24,13 @@ namespace DndBoard.Client.Helpers
                 await context.ClearRectAsync(0, 0, canvas.Width, canvas.Height);
                 await context.SetFillStyleAsync("Red");
                 await context.FillRectAsync(0, 0, canvas.Width, canvas.Height);
-                await context.DrawImageAsync(image, x, y);
+
+                int i = 0;
+                foreach (var img in images)
+                {
+                    await context.DrawImageAsync(img, coords[i].X, coords[i].Y);
+                    i++;
+                }
             }
             finally
             {

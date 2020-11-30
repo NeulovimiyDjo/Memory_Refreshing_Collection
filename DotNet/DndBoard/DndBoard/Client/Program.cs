@@ -2,6 +2,7 @@ using System;
 using System.Net.Http;
 using System.Threading.Tasks;
 using DndBoard.Client.Helpers;
+using DndBoard.Client.Store;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -17,6 +18,7 @@ namespace DndBoard.Client
             builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
             builder.Services.AddTransient<CanvasMapRenderer>();
             builder.Services.AddTransient<ChatHubManager>();
+            builder.Services.AddScoped<AppState>();
 
             await builder.Build().RunAsync();
         }

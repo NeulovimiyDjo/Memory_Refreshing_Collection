@@ -1,6 +1,10 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Text.Json;
+using System.Threading.Tasks;
 using DndBoard.Client.BaseComponents;
 using DndBoard.Client.Helpers;
+using DndBoard.Client.Store;
+using DndBoard.Shared;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 
@@ -10,34 +14,41 @@ namespace DndBoard.Client.Components
     {
 #pragma warning disable IDE0044 // Add readonly modifier
 #pragma warning disable CS0649 // Uninitialized value
-        private ElementReference _testImage;
         private bool _pressed;
 #pragma warning restore IDE0044 // Add readonly modifier
 #pragma warning restore CS0649 // Uninitialized value
+        List<Coords> _coords;
         [Inject]
         private CanvasMapRenderer _canvasMapRenderer { get; set; }
-        [Parameter]
-        public ChatHubManager ChatHubManager { get; set; }
+        [Inject]
+        private AppState _appState { get; set; }
 
         protected override void OnInitialized()
         {
-            ChatHubManager.SetCoordsReceivedHandler(CoordsReceivedHandler);
+            _appState.ChatHubManager.SetCoordsReceivedHandler(CoordsReceivedHandler);
+            _appState.FilesRefsChanged += Redraw;
         }
 
-        private async void CoordsReceivedHandler(string message)
+        private async void CoordsReceivedHandler(string coordsJson)
         {
-            string[] coords = message.Split(":");
-            double clientX = double.Parse(coords[0].Trim());
-            double clientY = double.Parse(coords[1].Trim());
-            await _canvasMapRenderer.RedrawImagesByCoords(clientX, clientY, Canvas, _testImage);
+            _coords = JsonSerializer.Deserialize<List<Coords>>(coordsJson);
+            await Redraw();
+        }
+
+        private async Task Redraw()
+        {
+            await _canvasMapRenderer.RedrawImagesByCoords(_coords,
+                Canvas, _appState.FilesRefs);
         }
 
         private async Task OnMouseMoveAsync(MouseEventArgs mouseEventArgs)
         {
             if (_pressed)
             {
-                (double clientX, double clientY) = await GetCanvasCoordinatesAsync(mouseEventArgs);
-                await ChatHubManager.SendCoordsAsync($"{clientX} : {clientY}");
+                Coords coords = await GetCanvasCoordinatesAsync(mouseEventArgs);
+                _coords[0] = coords;
+                string coordsJson = JsonSerializer.Serialize(_coords);
+                await _appState.ChatHubManager.SendCoordsAsync(coordsJson);
             }
         }
 

@@ -19,24 +19,32 @@
         }
     </script>
     <script>
-        function initializeFileInput(input, componentInstance) {
-            input.addEventListener('change', (e) => {
-                const fd = new FormData();
-                // add all selected files
-                Array.prototype.forEach.call(e.target.files, (file) => {
-                    fd.append('file', file);
-                });
-                // create the request
-                const xhr = new XMLHttpRequest();
-                xhr.onload = () => {
-                    if (xhr.status >= 200 && xhr.status < 300) {
-                        componentInstance.invokeMethodAsync('ReloadFilesIds');
-                    }
-                };
-                // path to server would be where you'd normally post the form to
-                xhr.open('POST', '/Images/PostFiles', true);
-                xhr.send(fd);
+        var boardIdGlobal;
+        var componentInstanceGlobal;
+        function onInputChange(e) {
+            const fd = new FormData();
+            // add all selected files
+            Array.prototype.forEach.call(e.target.files, (file) => {
+                fd.append('file', file);
             });
+            // create the request
+            const xhr = new XMLHttpRequest();
+            xhr.onload = () => {
+                if (xhr.status >= 200 && xhr.status < 300) {
+                    componentInstanceGlobal.invokeMethodAsync('ReloadFilesIds');
+                }
+            };
+
+            fd.append('boardId', boardIdGlobal);
+            // path to server would be where you'd normally post the form to
+            xhr.open('POST', '/Images/PostFiles', true);
+            xhr.send(fd);
+        }
+        function reinitializeFileInput(boardId, input, componentInstance) {
+            boardIdGlobal = boardId;
+            componentInstanceGlobal = componentInstance;
+            input.removeEventListener('change', onInputChange);
+            input.addEventListener('change', onInputChange);
         }
     </script>
 </head>

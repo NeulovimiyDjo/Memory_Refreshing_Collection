@@ -1,13 +1,13 @@
-﻿using DndBoard.Shared;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Http;
 using System.IO;
-using System.Collections.Concurrent;
+using DndBoard.Server.Hubs;
+using Microsoft.AspNetCore.SignalR;
+using DndBoard.Shared;
 
 namespace DndBoard.Server.Controllers
 {
@@ -16,17 +16,23 @@ namespace DndBoard.Server.Controllers
     public class ImagesController : ControllerBase
     {
         private readonly ILogger<ImagesController> _logger;
+        private readonly BoardsManager _boardManager;
+        private readonly IHubContext<BoardsHub> _boardsHubContext;
 
-        public ImagesController(ILogger<ImagesController> logger)
+        public ImagesController(
+            ILogger<ImagesController> logger,
+            BoardsManager boardManager,
+            IHubContext<BoardsHub> boardsHubContext)
         {
             _logger = logger;
+            _boardManager = boardManager;
+            _boardsHubContext = boardsHubContext;
         }
 
-        private static ConcurrentDictionary<string, byte[]> _fileContent =
-            new ConcurrentDictionary<string, byte[]>();
 
         [HttpPost]
         public async Task<IActionResult> PostFiles(
+            [FromForm(Name = "boardId")] string boardId,
             [FromForm(Name = "file")] IEnumerable<IFormFile> files)
         {
             _logger.LogInformation($"---------------------{files}-----------------------");
@@ -39,25 +45,29 @@ namespace DndBoard.Server.Controllers
             {
                 using MemoryStream ms = new MemoryStream();
                 await file.CopyToAsync(ms);
-                _fileContent.TryAdd(_fileContent.Count().ToString(), ms.ToArray());
+
+                Board board = _boardManager.GetBoard(boardId);
+                board.AddFile(ms.ToArray());
             }
+            await _boardsHubContext.Clients.Group(boardId).SendAsync(BoardsHubContract.NotifyFilesUpdate, boardId);
 
             return Ok("do something with this data....");
         }
 
-        [HttpGet("{id}")]
-        public async Task<IActionResult> GetFile(string id)
+        [HttpGet("{boardId}/{fileId}")]
+        public async Task<IActionResult> GetFile(string boardId, string fileId)
         {
-            if (_fileContent.ContainsKey(id))
-                return File(_fileContent[id], "image/png");
-
-            return BadRequest("File with this id doesn't exist");
+            Board board = _boardManager.GetBoard(boardId);
+            byte[] file = board.GetFile(fileId);
+            return File(file, "image/png");
         }
 
-        [HttpGet]
-        public async Task<IEnumerable<string>> GetFilesIds()
+        [HttpGet("{boardId}")]
+        public async Task<IEnumerable<string>> GetFilesIds(
+            [FromRoute(Name = "boardId")] string boardId)
         {
-            return _fileContent.Keys.ToList();
+            Board board = _boardManager.GetBoard(boardId);
+            return board.GetFilesIds();
         }
     }
 }
