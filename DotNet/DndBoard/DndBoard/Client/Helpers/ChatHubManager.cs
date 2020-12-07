@@ -32,11 +32,20 @@ namespace DndBoard.Client.Helpers
         public void SetCoordsReceivedHandler(Action<string> handler) =>
             _hubConnection.On(BoardsHubContract.CoordsChanged, handler);
 
-        public void SetNofifyFilesUpdateHandler(Action<string> handler) =>
-           _hubConnection.On(BoardsHubContract.NotifyFilesUpdate, handler);
+        public void SetImageRemovedHandler(Action<string> handler) =>
+            _hubConnection.On(BoardsHubContract.ImageRemoved, handler);
 
-        public async Task SendCoordsAsync(string coordsJson) =>
-            await _hubConnection.SendAsync(BoardsHubContract.CoordsChanged, _boardId, coordsJson);
+        public void SetNofifyFilesUpdateHandler(Action<string> handler) =>
+            _hubConnection.On(BoardsHubContract.NotifyFilesUpdate, handler);
+
+        public async Task SendCoordsAsync(string coordsChangeDataJson) =>
+            await _hubConnection.SendAsync(BoardsHubContract.CoordsChanged, _boardId, coordsChangeDataJson);
+        
+        public async Task SendImageRemoved(string imageId) =>
+            await _hubConnection.SendAsync(BoardsHubContract.ImageRemoved, _boardId, imageId);
+
+        public async Task RequestAllCoords() =>
+            await _hubConnection.SendAsync(BoardsHubContract.RequestAllCoords, _boardId);
 
         public async Task ConnectAsync(string boardId)
         {

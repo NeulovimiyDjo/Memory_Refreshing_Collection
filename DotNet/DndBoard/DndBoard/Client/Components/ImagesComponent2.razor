@@ -1,12 +1,21 @@
 ﻿@inherits CanvasBaseComponent
 
+<h3>Images</h3>
+
+@_boardId
+<p>
+    <InputFile OnChange="@OnInputFileChange" multiple />
+</p>
+
+@foreach (var image in _appState.ModelImages)
+{
+    <img @ref="image.Ref" src="/api/images/getfile/@_boardId/@image.Id" hidden/>
+}
+
 <div style="width: 700px; height: 700px; overflow-y: scroll;">
     <div
         @ref="DivCanvas"
-        @onmousemove="OnMouseMoveAsync"
-        @onmousedown="OnMouseDown"
-        @onmouseup="OnMouseUp"
-        @onmouseout="OnMouseOut"
+        @onclick="OnClick"
         @oncontextmenu="OnRightClick"
         @oncontextmenu:preventDefault="true"
         style="background-color: yellow"

@@ -1,13 +1,15 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using DndBoard.Client.Helpers;
-using Microsoft.AspNetCore.Components;
+using DndBoard.Client.Models;
 
 namespace DndBoard.Client.Store
 {
     public class AppState
     {
         public ChatHubManager ChatHubManager;
-        public ElementReference[] FilesRefs;
+        public List<MapImage> MapImages;
+        public List<MapImage> ModelImages;
 
         public event FilesRefsChangedHandler FilesRefsChanged;
         public event BoardIdChangedHandler BoardIdChanged;

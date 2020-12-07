@@ -1,4 +1,5 @@
-﻿using System.Collections.Concurrent;
+﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using DndBoard.Shared;
@@ -7,11 +8,11 @@ namespace DndBoard.Server.Hubs
 {
     public class Board
     {
-        private ConcurrentDictionary<string, byte[]> _files =
+        private readonly ConcurrentDictionary<string, byte[]> _files =
             new ConcurrentDictionary<string, byte[]>();
 
         public string BoardId { get; set; }
-        public List<Coords> CoordsList { get; set; }
+        public List<MyImage> ImagesOnMap { get; set; }
 
 
         public byte[] GetFile(string fileId)
@@ -19,9 +20,14 @@ namespace DndBoard.Server.Hubs
             return _files[fileId];
         }
 
+        public void DeleteFile(string fileId)
+        {
+            _files.Remove(fileId, out _);
+        }
+
         public void AddFile(byte[] file)
         {
-            _files.TryAdd(_files.Count().ToString(), file);
+            _files.TryAdd(Guid.NewGuid().ToString(), file);
         }
 
         public IEnumerable<string> GetFilesIds()

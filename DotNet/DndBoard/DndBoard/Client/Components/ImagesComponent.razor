@@ -1,4 +1,4 @@
-﻿@inherits ComponentBase
+﻿@*@inherits CanvasBaseComponent
 
 <h3>Images</h3>
 
@@ -10,5 +10,14 @@
 @if (_filesIds != null)
 @foreach (string fileId in _filesIds)
 {
-    <img @ref="_filesRefs[fileId]" src="/images/getfile/@_boardId/@fileId" />
+    <img @ref="_filesRefs[fileId]" src="/images/getfile/@_boardId/@fileId" hidden/>
 }
+
+<div style="width: 700px; height: 700px; overflow-y: scroll;">
+    <div
+        @ref="DivCanvas"
+        style="background-color: yellow"
+    >
+        <BECanvas @ref="Canvas" Height="600" Width="600"></BECanvas>
+    </div>
+</div>*@

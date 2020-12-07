@@ -4,7 +4,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Blazor.Extensions;
 using Blazor.Extensions.Canvas.Canvas2D;
-using DndBoard.Shared;
+using DndBoard.Client.Models;
 using Microsoft.AspNetCore.Components;
 
 namespace DndBoard.Client.Helpers
@@ -12,10 +12,9 @@ namespace DndBoard.Client.Helpers
     public class CanvasMapRenderer
     {
         private static SemaphoreSlim _semaphore = new SemaphoreSlim(1);
-        public async Task RedrawImagesByCoords(
-            List<Coords> coords,
+        public static async Task RedrawImagesByCoords(
             BECanvasComponent canvas,
-            ElementReference[] images)
+            List<MapImage> images)
         {
             await _semaphore.WaitAsync();
             try
@@ -25,11 +24,9 @@ namespace DndBoard.Client.Helpers
                 await context.SetFillStyleAsync("Red");
                 await context.FillRectAsync(0, 0, canvas.Width, canvas.Height);
 
-                int i = 0;
-                foreach (var img in images)
+                foreach (MapImage img in images)
                 {
-                    await context.DrawImageAsync(img, coords[i].X, coords[i].Y);
-                    i++;
+                    await context.DrawImageAsync(img.Ref, img.Coords.X, img.Coords.Y);
                 }
             }
             finally
@@ -38,7 +35,7 @@ namespace DndBoard.Client.Helpers
             }
         }
 
-        public async Task RedrawTestImageAsync(BECanvasComponent canvas, ElementReference image)
+        public static async Task RedrawTestImageAsync(BECanvasComponent canvas, ElementReference image)
         {
             Canvas2DContext context = await canvas.CreateCanvas2DAsync();
 
