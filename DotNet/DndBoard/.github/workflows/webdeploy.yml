@@ -1,0 +1,62 @@
+name: Dotnet Build-MSDeploy
+
+on:
+  push:
+    branches: [ master ]
+
+
+env:
+  PUBLISH_DIR_REL: DndBoard\Server\bin\Release\net5.0\publish\
+  APP_OFFLINE_DIR: deploy\app_offline_dir\
+  WEBSITE_CONTENT_PATH: ${{ secrets.WEBSITE_CONTENT_PATH }}
+  IIS_SERVER_COMPUTER_NAME: ${{ secrets.IIS_SERVER_COMPUTER_NAME }}
+  IIS_SERVER_USERNAME: ${{ secrets.IIS_SERVER_USERNAME }}
+  IIS_SERVER_PASSWORD: ${{ secrets.IIS_SERVER_PASSWORD }}
+ 
+jobs:
+  build:
+    name: Build
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 5.0.100
+ 
+    - name: Build with dotnet
+      run: dotnet build ./DndBoard/Server --configuration Release
+     
+    - name: Publish with dotnet
+      run: dotnet publish ./DndBoard/Server --configuration Release
+     
+    - name: Publish artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: my-artifact
+        path: ./DndBoard/Server/bin/Release/net5.0/publish
+ 
+  deploy:
+    needs: build
+    name: Deploy
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    # Download artifacts
+    - name: Download artifacts
+      uses: actions/download-artifact@v2
+      with:
+        name: my-artifact
+        path: ./DndBoard/Server/bin/Release/net5.0/publish
+
+    # Take application offline
+    - name: Take application offline
+      shell: cmd
+      run: '"C:/Program Files (x86)/IIS/Microsoft Web Deploy V3/msdeploy.exe" -verb:sync -allowUntrusted -source:contentPath="%CD%\${{ env.APP_OFFLINE_DIR }}" -skip:skipaction="Delete" -dest:contentPath="${{ env.WEBSITE_CONTENT_PATH }}",computerName="${{ env.IIS_SERVER_COMPUTER_NAME }}",username="${{ env.IIS_SERVER_USERNAME }}",password="${{ env.IIS_SERVER_PASSWORD }}",authtype="Basic"'
+    
+    # Deploy Application
+    - name: Deploy Application
+      shell: cmd
+      run: '"C:/Program Files (x86)/IIS/Microsoft Web Deploy V3/msdeploy.exe" -verb:sync -allowUntrusted -source:contentPath="%CD%\${{ env.PUBLISH_DIR_REL }}" -dest:contentPath="${{ env.WEBSITE_CONTENT_PATH }}",computerName="${{ env.IIS_SERVER_COMPUTER_NAME }}",username="${{ env.IIS_SERVER_USERNAME }}",password="${{ env.IIS_SERVER_PASSWORD }}",authtype="Basic"'
+    
